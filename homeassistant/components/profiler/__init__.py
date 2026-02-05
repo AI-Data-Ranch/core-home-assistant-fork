@@ -450,37 +450,9 @@ async def _async_generate_profile(hass: HomeAssistant, call: ServiceCall):
 
 
 async def _async_generate_memory_profile(hass: HomeAssistant, call: ServiceCall):
-    # Imports deferred to avoid loading modules
-    # in memory since usually only one part of this
-    # integration is used at a time
-    if sys.version_info >= (3, 14):
-        raise HomeAssistantError(
-            "Memory profiling is not supported on Python 3.14. Please use Python 3.13."
-        )
-    from guppy import hpy  # noqa: PLC0415
-
-    start_time = int(time.time() * 1000000)
-    persistent_notification.async_create(
-        hass,
-        (
-            "The memory profile has started. This notification will be updated when it"
-            " is complete."
-        ),
-        title="Profile Started",
-        notification_id=f"memory_profiler_{start_time}",
-    )
-    heap_profiler = hpy()
-    heap_profiler.setref()
-    await asyncio.sleep(float(call.data[CONF_SECONDS]))
-    heap = heap_profiler.heap()
-
-    heap_path = hass.config.path(f"heap_profile.{start_time}.hpy")
-    await hass.async_add_executor_job(_write_memory_profile, heap, heap_path)
-    persistent_notification.async_create(
-        hass,
-        f"Wrote heapy memory profile to {heap_path}",
-        title="Profile Complete",
-        notification_id=f"memory_profiler_{start_time}",
+    """Generate a memory profile - not supported on Python 3.14."""
+    raise HomeAssistantError(
+        "Memory profiling is not supported on Python 3.14. Please use Python 3.13."
     )
 
 
