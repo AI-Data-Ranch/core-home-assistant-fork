@@ -1,0 +1,27 @@
+Session Start: 2026-02-05 21:56:21 UTC
+Task: Upgrade Python 3.13 to Python 3.14
+=== Upgrade Log ===
+Files Modified:
+ .github/workflows/builder.yml      | 2 +-
+ .github/workflows/ci.yaml          | 4 ++--
+ .github/workflows/translations.yml | 2 +-
+ .github/workflows/wheels.yml       | 4 ++--
+ .python-version                    | 2 +-
+ homeassistant/const.py             | 4 ++--
+ mypy.ini                           | 2 +-
+ pyproject.toml                     | 6 +++---
+ script/hassfest/docker.py          | 2 +-
+ script/hassfest/docker/Dockerfile  | 2 +-
+ 10 files changed, 15 insertions(+), 15 deletions(-)
+
+Changes Summary:
+- Updated .python-version from 3.13 to 3.14
+- Updated homeassistant/const.py REQUIRED_PYTHON_VER from (3, 13, 2) to (3, 14, 0)
+- Updated pyproject.toml requires-python, classifiers, and py-version
+- Updated mypy.ini python_version from 3.13 to 3.14
+- Updated .github/workflows/ci.yaml DEFAULT_PYTHON and ALL_PYTHON_VERSIONS
+- Updated .github/workflows/builder.yml DEFAULT_PYTHON
+- Updated .github/workflows/wheels.yml DEFAULT_PYTHON and ABI versions
+- Updated .github/workflows/translations.yml DEFAULT_PYTHON
+- Updated script/hassfest/docker/Dockerfile Python base image
+- Updated script/hassfest/docker.py Python base image in template
