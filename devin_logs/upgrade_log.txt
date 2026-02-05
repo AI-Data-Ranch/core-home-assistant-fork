@@ -1,0 +1,37 @@
+=== Upgrade Log ===
+Date: 2026-02-05 22:01:41 UTC
+
+=== Dependencies Updated ===
+1. aiohttp: 3.13.2 -> 3.13.3 (8 CVEs fixed)
+   - CVE-2025-69223: DoS via zip bomb
+   - CVE-2025-69224: Request smuggling attack
+   - CVE-2025-69228: Memory exhaustion attack
+   - CVE-2025-69229: CPU exhaustion via chunked messages
+   - CVE-2025-69230: Logging storm via invalid cookies
+   - CVE-2025-69226: Path traversal in static files
+   - CVE-2025-69227: Infinite loop DoS
+   - CVE-2025-69225: Non-ASCII decimals in Range header
+
+2. mcp: 1.14.1 -> 1.23.0 (1 CVE fixed)
+   - CVE-2025-66416: DNS rebinding protection missing
+
+3. protobuf: 6.32.0 -> 6.33.5 (1 CVE fixed)
+   - CVE-2026-0994: DoS in json_format.ParseDict()
+
+4. PyNaCl: 1.6.0 -> 1.6.2 (1 CVE fixed)
+   - CVE-2025-69277: libsodium vulnerability
+
+=== Dependencies NOT Updated (No fix available) ===
+1. ecdsa 0.19.1 - CVE-2024-23342: Minerva timing attack (no fix available)
+2. orjson 3.11.3 - CVE-2025-67221: Recursion limit issue (no fix available)
+
+=== Files Modified ===
+1. homeassistant/components/mcp/manifest.json
+2. homeassistant/components/mcp_server/manifest.json
+3. homeassistant/components/mobile_app/manifest.json
+4. homeassistant/components/owntracks/manifest.json
+5. homeassistant/package_constraints.txt
+6. pyproject.toml
+7. requirements.txt
+8. requirements_all.txt
+9. requirements_test_all.txt
