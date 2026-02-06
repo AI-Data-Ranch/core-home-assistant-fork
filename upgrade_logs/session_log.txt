@@ -1,0 +1,31 @@
+Python 3.13 to 3.14 Upgrade Session Log
+========================================
+
+Session ID: c33a624963e242b084aa0dde0e943772
+Session URL: https://jpmc-oss.devinenterprise.com/sessions/c33a624963e242b084aa0dde0e943772
+
+Task: Upgrade core-home-assistant-fork from Python 3.13 to Python 3.14
+
+Steps Completed:
+1. Cloned repository and checked out feature branch
+2. Analyzed Python version references in the codebase
+3. Updated all configuration files:
+   - .python-version
+   - homeassistant/const.py
+   - pyproject.toml
+   - .github/workflows/ci.yaml
+   - .github/workflows/builder.yml
+   - .github/workflows/wheels.yml
+   - .github/workflows/translations.yml
+   - script/hassfest/docker/Dockerfile
+   - script/hassfest/docker.py
+   - mypy.ini
+   - .github/copilot-instructions.md
+4. Ran lint checks - all passed
+5. Committed changes
+6. Resolved merge conflicts with remote branch
+7. Pushed to remote
+8. PR already existed - updated with new commits
+9. Generated metrics report
+
+Result: SUCCESS

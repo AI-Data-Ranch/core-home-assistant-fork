@@ -1,0 +1,20 @@
+fb4e26bd2a6 Merge remote branch and resolve conflicts for Python 3.14 upgrade
+2594fa42406 Upgrade Python version from 3.13 to 3.14
+227a966b7c7 Upgrade Python version from 3.13 to 3.14
+cae5bca5465 Add integration_type device to kostal_plenticore (#159288)
+49299b06c60 Add integration_type device to kmtronic (#159286)
+8e39027ad5b Add guidance to not amend commits after review starts (#158804)
+2a1ce2df61c Add integration_type service to kodi (#159287)
+7a6d929150b Add integration_type device to kulersky (#159290)
+6f4a112dbbc Add integration_type hub to lacrosse_view (#159291)
+2197b910fb4 Add integration_type device to landisgyr_heat_meter (#159293)
+7e2a9cd7f9c Add integration_type hub to laundrify (#159295)
+e7ed7a8ed2b Add integration_type hub to lcn (#159296)
+9ba2d0defe3 Add integration_type device to leaone (#159297)
+231300919c6 Add integration_type device to led_ble (#159298)
+664c50586fa Add integration_type device to lg_soundbar (#159299)
+43b9ecfc2ba Add integration_type device to lifx (#159302)
+f1237ed52a9 Add integration_type hub to livisi (#159303)
+ecf8f55cc4f Add integration_type device to loqed (#159305)
+ff36693057f Add integration_type hub to lupusec (#159306)
+005785997c1 Add integration_type hub to lutron (#159307)
