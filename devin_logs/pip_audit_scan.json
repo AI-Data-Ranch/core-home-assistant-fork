@@ -1,0 +1,19 @@
+{
+  "scan_date": "2026-02-06",
+  "vulnerabilities_found": 9,
+  "packages_affected": 2,
+  "packages": [
+    {
+      "name": "aiohttp",
+      "old_version": "3.13.2",
+      "new_version": "3.13.3",
+      "cves_fixed": 8
+    },
+    {
+      "name": "orjson",
+      "old_version": "3.11.3",
+      "new_version": "3.11.7",
+      "cves_fixed": 1
+    }
+  ]
+}
