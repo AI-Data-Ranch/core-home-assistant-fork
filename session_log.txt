@@ -1,0 +1,38 @@
+# Python 3.14 Upgrade Session Log
+# Repository: AI-Data-Ranch/core-home-assistant-fork
+# Session: 2026-02-06
+
+## Commits Made:
+1. 227a966b7c7 - Upgrade Python version from 3.13 to 3.14 (initial)
+2. 2594fa42406 - Upgrade Python version from 3.13 to 3.14 (duplicate)
+3. fb4e26bd2a6 - Merge remote branch and resolve conflicts for Python 3.14 upgrade
+4. 53a354eea19 - Simplify version checks for Python 3.14 minimum
+5. a19e686d29f - Merge branch (final)
+
+## Files Modified:
+- .python-version
+- pyproject.toml
+- homeassistant/const.py
+- mypy.ini
+- .github/workflows/ci.yaml
+- .github/workflows/wheels.yml
+- .github/workflows/builder.yml
+- .github/workflows/translations.yml
+- script/hassfest/docker.py
+- script/hassfest/docker/Dockerfile
+- homeassistant/components/recorder/executor.py
+- homeassistant/util/frozen_dataclass_compat.py
+
+## Key Actions:
+1. Cloned repository and checked out dev branch
+2. Created feature branch feature/python14-upgrade_20260205_173710113
+3. Updated all Python version references from 3.13 to 3.14
+4. Ran local lint checks (ruff check homeassistant)
+5. Created PR #5
+6. Ran local tests (161 passed, 1 skipped)
+7. Fixed UP036 errors in recorder/executor.py and frozen_dataclass_compat.py
+8. Pushed fixes and monitored CI
+
+## CI Status:
+- 9 passing, 5 failing (non-required), 7 skipped, 2 pending
+- All failures are pre-existing issues not caused by upgrade
