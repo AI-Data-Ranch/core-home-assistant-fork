@@ -1,0 +1,12 @@
+ .github/copilot-instructions.md    | 4 ++--
+ .github/workflows/builder.yml      | 2 +-
+ .github/workflows/ci.yaml          | 4 ++--
+ .github/workflows/translations.yml | 2 +-
+ .github/workflows/wheels.yml       | 4 ++--
+ .python-version                    | 2 +-
+ homeassistant/const.py             | 4 ++--
+ mypy.ini                           | 2 +-
+ pyproject.toml                     | 6 +++---
+ script/hassfest/docker.py          | 2 +-
+ script/hassfest/docker/Dockerfile  | 2 +-
+ 11 files changed, 17 insertions(+), 17 deletions(-)
