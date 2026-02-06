@@ -1,0 +1,11 @@
+.github/copilot-instructions.md
+.github/workflows/builder.yml
+.github/workflows/ci.yaml
+.github/workflows/translations.yml
+.github/workflows/wheels.yml
+.python-version
+homeassistant/const.py
+mypy.ini
+pyproject.toml
+script/hassfest/docker.py
+script/hassfest/docker/Dockerfile

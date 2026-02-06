@@ -1,0 +1,171 @@
+diff --git a/.github/copilot-instructions.md b/.github/copilot-instructions.md
+index 03174c0d2b1..848ecd5ff35 100644
+--- a/.github/copilot-instructions.md
++++ b/.github/copilot-instructions.md
+@@ -56,7 +56,7 @@ rules:
+ 
+ ## Python Requirements
+ 
+-- **Compatibility**: Python 3.13+
++- **Compatibility**: Python 3.14+
+ - **Language Features**: Use the newest features when possible:
+   - Pattern matching
+   - Type hints
+@@ -1181,4 +1181,4 @@ python -m script.hassfest --integration-path homeassistant/components/my_integra
+ pytest ./tests/components/my_integration \
+   --cov=homeassistant.components.my_integration \
+   --cov-report term-missing
+-```
+\ No newline at end of file
++```
+diff --git a/.github/workflows/builder.yml b/.github/workflows/builder.yml
+index d8127c3d6a4..975b6415e7a 100644
+--- a/.github/workflows/builder.yml
++++ b/.github/workflows/builder.yml
+@@ -10,7 +10,7 @@ on:
+ 
+ env:
+   BUILD_TYPE: core
+-  DEFAULT_PYTHON: "3.13"
++  DEFAULT_PYTHON: "3.14"
+   PIP_TIMEOUT: 60
+   UV_HTTP_TIMEOUT: 60
+   UV_SYSTEM_PYTHON: "true"
+diff --git a/.github/workflows/ci.yaml b/.github/workflows/ci.yaml
+index d8e2b92c39b..f1d6dff152e 100644
+--- a/.github/workflows/ci.yaml
++++ b/.github/workflows/ci.yaml
+@@ -41,8 +41,8 @@ env:
+   UV_CACHE_VERSION: 1
+   MYPY_CACHE_VERSION: 1
+   HA_SHORT_VERSION: "2026.1"
+-  DEFAULT_PYTHON: "3.13.11"
+-  ALL_PYTHON_VERSIONS: "['3.13.11', '3.14.2']"
++  DEFAULT_PYTHON: "3.14.2"
++  ALL_PYTHON_VERSIONS: "['3.14.2']"
+   # 10.3 is the oldest supported version
+   # - 10.3.32 is the version currently shipped with Synology (as of 17 Feb 2022)
+   # 10.6 is the current long-term-support
+diff --git a/.github/workflows/translations.yml b/.github/workflows/translations.yml
+index ae3c7adce3a..30dd1e9cb3f 100644
+--- a/.github/workflows/translations.yml
++++ b/.github/workflows/translations.yml
+@@ -10,7 +10,7 @@ on:
+       - "**strings.json"
+ 
+ env:
+-  DEFAULT_PYTHON: "3.13"
++  DEFAULT_PYTHON: "3.14"
+ 
+ jobs:
+   upload:
+diff --git a/.github/workflows/wheels.yml b/.github/workflows/wheels.yml
+index fb9dcb62fd5..e7e5afe5813 100644
+--- a/.github/workflows/wheels.yml
++++ b/.github/workflows/wheels.yml
+@@ -17,7 +17,7 @@ on:
+       - "script/gen_requirements_all.py"
+ 
+ env:
+-  DEFAULT_PYTHON: "3.13"
++  DEFAULT_PYTHON: "3.14"
+ 
+ concurrency:
+   group: ${{ github.workflow }}-${{ github.ref_name}}
+@@ -107,7 +107,7 @@ jobs:
+     strategy:
+       fail-fast: false
+       matrix: &matrix-build
+-        abi: ["cp313", "cp314"]
++        abi: ["cp314"]
+         arch: ["amd64", "aarch64"]
+         include:
+           - arch: amd64
+diff --git a/.python-version b/.python-version
+index 24ee5b1be99..6324d401a06 100644
+--- a/.python-version
++++ b/.python-version
+@@ -1 +1 @@
+-3.13
++3.14
+diff --git a/homeassistant/const.py b/homeassistant/const.py
+index be3e4ce92fb..21e8e80f46e 100644
+--- a/homeassistant/const.py
++++ b/homeassistant/const.py
+@@ -20,8 +20,8 @@ MINOR_VERSION: Final = 1
+ PATCH_VERSION: Final = "0.dev0"
+ __short_version__: Final = f"{MAJOR_VERSION}.{MINOR_VERSION}"
+ __version__: Final = f"{__short_version__}.{PATCH_VERSION}"
+-REQUIRED_PYTHON_VER: Final[tuple[int, int, int]] = (3, 13, 2)
+-REQUIRED_NEXT_PYTHON_VER: Final[tuple[int, int, int]] = (3, 13, 2)
++REQUIRED_PYTHON_VER: Final[tuple[int, int, int]] = (3, 14, 0)
++REQUIRED_NEXT_PYTHON_VER: Final[tuple[int, int, int]] = (3, 14, 0)
+ # Truthy date string triggers showing related deprecation warning messages.
+ REQUIRED_NEXT_PYTHON_HA_RELEASE: Final = ""
+ 
+diff --git a/mypy.ini b/mypy.ini
+index 93cd23c31a7..b05cf368662 100644
+--- a/mypy.ini
++++ b/mypy.ini
+@@ -3,7 +3,7 @@
+ # To update, run python3 -m script.hassfest -p mypy_config
+ 
+ [mypy]
+-python_version = 3.13
++python_version = 3.14
+ platform = linux
+ plugins = pydantic.mypy, pydantic.v1.mypy
+ show_error_codes = true
+diff --git a/pyproject.toml b/pyproject.toml
+index 69d7787cd1b..d0a99912396 100644
+--- a/pyproject.toml
++++ b/pyproject.toml
+@@ -18,11 +18,11 @@ classifiers = [
+   "Intended Audience :: End Users/Desktop",
+   "Intended Audience :: Developers",
+   "Operating System :: OS Independent",
+-  "Programming Language :: Python :: 3.13",
+   "Programming Language :: Python :: 3.14",
++  "Programming Language :: Python :: 3.15",
+   "Topic :: Home Automation",
+ ]
+-requires-python = ">=3.13.2"
++requires-python = ">=3.14.0"
+ dependencies = [
+   "aiodns==3.6.1",
+   # Integrations may depend on hassio integration without listing it to
+@@ -102,7 +102,7 @@ include-package-data = true
+ include = ["homeassistant*"]
+ 
+ [tool.pylint.MAIN]
+-py-version = "3.13"
++py-version = "3.14"
+ # Use a conservative default here; 2 should speed up most setups and not hurt
+ # any too bad. Override on command line as appropriate.
+ jobs = 2
+diff --git a/script/hassfest/docker.py b/script/hassfest/docker.py
+index 0f8b2dd58c9..8b395b4c800 100644
+--- a/script/hassfest/docker.py
++++ b/script/hassfest/docker.py
+@@ -82,7 +82,7 @@ WORKDIR /config
+ _HASSFEST_TEMPLATE = r"""# Automatically generated by hassfest.
+ #
+ # To update, run python3 -m script.hassfest -p docker
+-FROM python:3.13-alpine
++FROM python:3.14-alpine
+ 
+ ENV \
+     UV_SYSTEM_PYTHON=true \
+diff --git a/script/hassfest/docker/Dockerfile b/script/hassfest/docker/Dockerfile
+index c5382a4a966..05b26083628 100644
+--- a/script/hassfest/docker/Dockerfile
++++ b/script/hassfest/docker/Dockerfile
+@@ -1,7 +1,7 @@
+ # Automatically generated by hassfest.
+ #
+ # To update, run python3 -m script.hassfest -p docker
+-FROM python:3.13-alpine
++FROM python:3.14-alpine
+ 
+ ENV \
+     UV_SYSTEM_PYTHON=true \
