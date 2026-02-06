@@ -10,7 +10,7 @@ import dataclasses
 import sys
 from typing import TYPE_CHECKING, Any, cast, dataclass_transform
 
-if sys.version_info >= (3, 14):
+if sys.version_info >= (3, 14):  # noqa: UP036
     from annotationlib import Format, get_annotations
 else:
     from typing_extensions import Format, get_annotations

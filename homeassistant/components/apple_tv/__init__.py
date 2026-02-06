@@ -42,7 +42,7 @@ from .const import (
     SIGNAL_DISCONNECTED,
 )
 
-if sys.version_info < (3, 14):
+if sys.version_info < (3, 14):  # noqa: UP036
     from pyatv import connect, exceptions, scan
     from pyatv.conf import AppleTV
     from pyatv.const import DeviceModel, Protocol
@@ -64,7 +64,7 @@ BACKOFF_TIME_UPPER_LIMIT = 300  # Five minutes
 
 PLATFORMS = [Platform.MEDIA_PLAYER, Platform.REMOTE]
 
-if sys.version_info < (3, 14):
+if sys.version_info < (3, 14):  # noqa: UP036
     AUTH_EXCEPTIONS = (
         exceptions.AuthenticationError,
         exceptions.InvalidCredentialsError,
@@ -95,11 +95,11 @@ type AppleTvConfigEntry = ConfigEntry[AppleTVManager]
 
 async def async_setup_entry(hass: HomeAssistant, entry: AppleTvConfigEntry) -> bool:
     """Set up a config entry for Apple TV."""
-    if sys.version_info >= (3, 14):
+    if sys.version_info >= (3, 14):  # noqa: UP036
         raise HomeAssistantError(
             "Apple TV is not supported on Python 3.14. Please use Python 3.13."
         )
-    manager = AppleTVManager(hass, entry)
+    manager = AppleTVManager(hass, entry)  # type: ignore[unreachable]
 
     if manager.is_on:
         address = entry.data[CONF_ADDRESS]
@@ -148,7 +148,7 @@ class AppleTVManager(DeviceListener):
     in case of problems.
     """
 
-    atv: AppleTVInterface | None = None
+    atv: AppleTVInterface | None = None  # type: ignore[name-defined]
     _connection_attempts = 0
     _connection_was_lost = False
     _task: asyncio.Task[None] | None = None
@@ -242,7 +242,7 @@ class AppleTVManager(DeviceListener):
         """Try to connect once."""
         try:
             await self._connect_once(raise_missing_credentials)
-        except exceptions.AuthenticationError:
+        except exceptions.AuthenticationError:  # type: ignore[name-defined]
             self.config_entry.async_start_reauth(self.hass)
             await self.disconnect()
             _LOGGER.exception(
@@ -281,7 +281,7 @@ class AppleTVManager(DeviceListener):
         _LOGGER.debug("Connect loop ended")
         self._task = None
 
-    async def _scan(self) -> AppleTV | None:
+    async def _scan(self) -> AppleTV | None:  # type: ignore[name-defined]
         """Try to find device by scanning for it."""
         config_entry = self.config_entry
         identifiers: set[str] = set(
@@ -292,12 +292,13 @@ class AppleTVManager(DeviceListener):
 
         # Only scan for and set up protocols that was successfully paired
         protocols = {
-            Protocol(int(protocol)) for protocol in config_entry.data[CONF_CREDENTIALS]
+            Protocol(int(protocol))  # type: ignore[name-defined]
+            for protocol in config_entry.data[CONF_CREDENTIALS]
         }
 
         _LOGGER.debug("Discovering device %s", config_entry.title)
         aiozc = await zeroconf.async_get_async_instance(hass)
-        atvs = await scan(
+        atvs = await scan(  # type: ignore[name-defined]
             hass.loop,
             identifier=identifiers,
             protocol=protocols,
@@ -305,7 +306,7 @@ class AppleTVManager(DeviceListener):
             aiozc=aiozc,
         )
         if atvs:
-            return cast(AppleTV, atvs[0])
+            return cast(AppleTV, atvs[0])  # type: ignore[name-defined]
 
         _LOGGER.debug(
             "Failed to find device %s with address %s",
@@ -316,16 +317,16 @@ class AppleTVManager(DeviceListener):
         # it will update the address and reload the config entry when the device is found.
         return None
 
-    async def _connect(self, conf: AppleTV, raise_missing_credentials: bool) -> None:
+    async def _connect(self, conf: AppleTV, raise_missing_credentials: bool) -> None:  # type: ignore[name-defined]
         """Connect to device."""
         config_entry = self.config_entry
         credentials: dict[int, str | None] = config_entry.data[CONF_CREDENTIALS]
         name: str = config_entry.data[CONF_NAME]
         missing_protocols = []
         for protocol_int, creds in credentials.items():
-            protocol = Protocol(int(protocol_int))
+            protocol = Protocol(int(protocol_int))  # type: ignore[name-defined]
             if conf.get_service(protocol) is not None:
-                conf.set_credentials(protocol, creds)  # type: ignore[arg-type]
+                conf.set_credentials(protocol, creds)
             else:
                 missing_protocols.append(protocol.name)
 
@@ -345,7 +346,7 @@ class AppleTVManager(DeviceListener):
 
         _LOGGER.debug("Connecting to device %s", self.config_entry.data[CONF_NAME])
         session = async_get_clientsession(self.hass)
-        self.atv = await connect(conf, self.hass.loop, session=session)
+        self.atv = await connect(conf, self.hass.loop, session=session)  # type: ignore[name-defined]
         self.atv.listener = self
 
         self._dispatch_send(SIGNAL_CONNECTED, self.atv)
@@ -379,8 +380,8 @@ class AppleTVManager(DeviceListener):
 
             attrs[ATTR_MODEL] = (
                 dev_info.raw_model
-                if dev_info.model == DeviceModel.Unknown and dev_info.raw_model
-                else model_str(dev_info.model)
+                if dev_info.model == DeviceModel.Unknown and dev_info.raw_model  # type: ignore[name-defined]
+                else model_str(dev_info.model)  # type: ignore[name-defined]
             )
             attrs[ATTR_SW_VERSION] = dev_info.version
 
