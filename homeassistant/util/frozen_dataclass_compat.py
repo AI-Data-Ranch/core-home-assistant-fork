@@ -10,10 +10,22 @@ import dataclasses
 import sys
 from typing import TYPE_CHECKING, Any, cast, dataclass_transform
 
-if sys.version_info >= (3, 14):
+# Note: This version check is needed for backward compatibility with local
+# development environments that may still use Python 3.13
+if sys.version_info >= (3, 14):  # noqa: UP036
     from annotationlib import Format, get_annotations
 else:
-    from typing_extensions import Format, get_annotations
+    from typing import get_type_hints
+
+    class Format:  # type: ignore[no-redef]
+        """Dummy Format class for Python < 3.14."""
+
+        FORWARDREF = None
+
+    def get_annotations(cls: type, format: Format | None = None) -> dict[str, Any]:
+        """Wrapper for get_type_hints that ignores the format argument on Python < 3.14."""
+        return get_type_hints(cls)
+
 
 if TYPE_CHECKING:
     from _typeshed import DataclassInstance

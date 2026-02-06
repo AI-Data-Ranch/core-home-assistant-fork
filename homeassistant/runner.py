@@ -173,8 +173,11 @@ class RuntimeConfig:
     safe_mode: bool = False
 
 
-class HassEventLoopPolicy(asyncio.DefaultEventLoopPolicy):
-    """Event loop policy for Home Assistant."""
+class HassEventLoopPolicy(asyncio.DefaultEventLoopPolicy):  # type: ignore[name-defined,misc]
+    """Event loop policy for Home Assistant.
+
+    Note: asyncio.DefaultEventLoopPolicy is deprecated in Python 3.14.
+    """
 
     def __init__(self, debug: bool) -> None:
         """Init the event loop policy."""
@@ -184,7 +187,7 @@ class HassEventLoopPolicy(asyncio.DefaultEventLoopPolicy):
     @property
     def loop_name(self) -> str:
         """Return name of the loop."""
-        return self._loop_factory.__name__  # type: ignore[no-any-return,attr-defined]
+        return self._loop_factory.__name__  # type: ignore[no-any-return]
 
     def new_event_loop(self) -> asyncio.AbstractEventLoop:
         """Get the event loop."""
@@ -281,7 +284,7 @@ def run(runtime_config: RuntimeConfig) -> int:
     """Run Home Assistant."""
     _enable_posix_spawn()
     set_open_file_descriptor_limit()
-    asyncio.set_event_loop_policy(HassEventLoopPolicy(runtime_config.debug))
+    asyncio.set_event_loop_policy(HassEventLoopPolicy(runtime_config.debug))  # type: ignore[deprecated]
     # Backport of cpython 3.9 asyncio.run with a _cancel_all_tasks that times out
     loop = asyncio.new_event_loop()
     try:

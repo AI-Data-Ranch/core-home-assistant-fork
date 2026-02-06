@@ -1,9 +1,3 @@
 """Tests for Apple TV."""
 
-import sys
-
-import pytest
-
-if sys.version_info < (3, 14):
-    # Make asserts in the common module display differences
-    pytest.register_assert_rewrite("tests.components.apple_tv.common")
+# pyatv is not supported on Python 3.14+, tests are skipped via conftest.py
