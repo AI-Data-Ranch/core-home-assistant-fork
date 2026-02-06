@@ -1,0 +1,26 @@
+=== Python 3.14 Upgrade Task Log ===
+Task Start Time: 2026-02-06 01:42:38 UTC
+Start Timestamp: 1770342158
+
+Repository: https://github.com/AI-Data-Ranch/core-home-assistant-fork.git
+Base Branch: dev
+Result Branch: feature/python14-upgrade_20260205_173710117
+Task: Upgrade Python from 3.13 to 3.14
+
+--- Progress Log ---
+[2026-02-06 01:43:22 UTC] Branch created: feature/python14-upgrade_20260205_173710117
+
+[2026-02-06 01:44:06 UTC] Analysis of Python version references:
+
+Files to update (excluding .venv):
+1. pyproject.toml - Line 21: "Programming Language :: Python :: 3.13" -> 3.14
+2. pyproject.toml - Line 25: requires-python = ">=3.13.2" -> >=3.14.0
+3. pyproject.toml - Line 105: py-version = "3.13" -> 3.14
+4. .github/workflows/ci.yaml - Line 44: DEFAULT_PYTHON: "3.13.11" -> "3.14.2"
+5. .github/workflows/ci.yaml - Line 45: ALL_PYTHON_VERSIONS: "['3.13.11', '3.14.2']" -> "['3.14.2']"
+6. .github/workflows/wheels.yml - Line 20: DEFAULT_PYTHON: "3.13" -> "3.14"
+7. .github/workflows/builder.yml - Line 13: DEFAULT_PYTHON: "3.13" -> "3.14"
+8. .github/workflows/translations.yml - Line 13: DEFAULT_PYTHON: "3.13" -> "3.14"
+9. script/hassfest/docker.py - Line 85: FROM python:3.13-alpine -> 3.14-alpine
+10. script/hassfest/docker/Dockerfile - Line 4: FROM python:3.13-alpine -> 3.14-alpine
+
