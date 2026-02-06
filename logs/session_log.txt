@@ -1,0 +1,24 @@
+Task Start Time: 2026-02-06 07:03:44 UTC
+Session URL: https://jpmc-oss.devinenterprise.com/sessions/691822f159a348f79fd4b9c49483cd85
+Branch: feature/vulnerability-update_20260205_230230187
+Base Branch: dev
+
+=== Snyk Scan Start: 2026-02-06 07:03:57 UTC ===
+=== Task End Time: 2026-02-06 07:16:36 UTC ===
+
+=== Files Updated ===
+ homeassistant/components/bthome/manifest.json     |  2 +-
+ homeassistant/components/mcp/manifest.json        |  2 +-
+ homeassistant/components/mcp_server/manifest.json |  2 +-
+ homeassistant/components/minio/manifest.json      |  2 +-
+ homeassistant/components/sentry/manifest.json     |  2 +-
+ homeassistant/components/sql/manifest.json        |  2 +-
+ homeassistant/package_constraints.txt             |  4 ++--
+ pyproject.toml                                    |  4 ++--
+ requirements.txt                                  |  4 ++--
+ requirements_all.txt                              | 10 +++++-----
+ requirements_test_all.txt                         | 10 +++++-----
+ 11 files changed, 22 insertions(+), 22 deletions(-)
+
+=== Test Results ===
+161 passed, 1 skipped in 4.42s
