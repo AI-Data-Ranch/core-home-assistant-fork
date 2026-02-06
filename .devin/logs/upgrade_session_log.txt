@@ -1,0 +1,129 @@
+================================================================================
+FRAMEWORK UPGRADE SESSION LOG
+================================================================================
+Date: 2026-02-06
+Task: Upgrade aiohttp to 3.13.3 and SQLAlchemy to 2.0.44
+Repository: AI-Data-Ranch/core-home-assistant-fork
+Session: https://jpmc-oss.devinenterprise.com/sessions/3bf210de10cc4e9e9b85efc9cbd5707f
+
+================================================================================
+STEP 1: REPOSITORY CHECKOUT
+================================================================================
+- Cloned repository from https://github.com/AI-Data-Ranch/core-home-assistant-fork.git
+- Checked out branch: feature/framework-update_20260205_173717704
+- Base branch: dev
+
+================================================================================
+STEP 2: VERSION ANALYSIS
+================================================================================
+Current versions found:
+- aiohttp: 3.13.2 (in pyproject.toml line 32)
+- SQLAlchemy: 2.0.41 (in pyproject.toml line 72)
+
+Target versions:
+- aiohttp: 3.13.3
+- SQLAlchemy: 2.0.44
+
+================================================================================
+STEP 3: FILES UPDATED
+================================================================================
+1. pyproject.toml
+   - Line 32: "aiohttp==3.13.2" -> "aiohttp==3.13.3"
+   - Line 72: "SQLAlchemy==2.0.41" -> "SQLAlchemy==2.0.44"
+
+2. requirements.txt
+   - Line 8: aiohttp==3.13.2 -> aiohttp==3.13.3
+   - Line 43: SQLAlchemy==2.0.41 -> SQLAlchemy==2.0.44
+
+3. requirements_all.txt
+   - Line 118: SQLAlchemy==2.0.41 -> SQLAlchemy==2.0.44
+
+4. requirements_test_all.txt
+   - Line 115: SQLAlchemy==2.0.41 -> SQLAlchemy==2.0.44
+
+5. homeassistant/package_constraints.txt
+   - Line 9: aiohttp==3.13.2 -> aiohttp==3.13.3
+   - Line 66: SQLAlchemy==2.0.41 -> SQLAlchemy==2.0.44
+
+6. homeassistant/components/recorder/manifest.json
+   - Line 10: "SQLAlchemy==2.0.41" -> "SQLAlchemy==2.0.44"
+
+7. homeassistant/components/sql/manifest.json
+   - Line 9: "SQLAlchemy==2.0.41" -> "SQLAlchemy==2.0.44"
+
+================================================================================
+STEP 4: CODE REFACTORING (SQLAlchemy 2.0.44 Type Improvements)
+================================================================================
+8. homeassistant/components/recorder/db_schema.py
+   - Line 195: Removed "# type: ignore[no-untyped-call]" from mysql.INTEGER
+   - Line 209: Removed "# type: ignore[no-untyped-call]" from mysql.DATETIME
+   - Line 210: Kept "# type: ignore[no-untyped-call]" for FAST_PYSQLITE_DATETIME (local untyped)
+   - Line 214: Removed "# type: ignore[no-untyped-call]" from mysql.DOUBLE
+
+9. homeassistant/components/recorder/util.py
+   - Line 450: Removed "# type: ignore[attr-defined]" from isolation_level
+   - Line 451: Removed "# type: ignore[attr-defined]" from isolation_level = None
+   - Line 453: Removed "# type: ignore[attr-defined]" from isolation_level = old_isolation
+
+================================================================================
+STEP 5: SUBMODULES CHECK
+================================================================================
+Result: No submodules found in this project
+
+================================================================================
+STEP 6: LOCAL TESTING
+================================================================================
+Lint Check (ruff check homeassistant):
+- Result: PASSED - All checks passed
+
+Core Tests (pytest tests/test_core.py -v --timeout=60):
+- Result: PASSED - 161 passed, 1 skipped
+
+Home Assistant Startup:
+- Result: PASSED - Application running on localhost:8123
+- Note: SQLite version warning (3.37.2 < 3.40.1) is pre-existing environment issue
+
+Pre-commit Hooks:
+- Result: PASSED - All hooks passed
+
+Mypy Type Check:
+- Result: PASSED - No issues found
+
+================================================================================
+STEP 7: PR CREATION
+================================================================================
+PR URL: https://github.com/AI-Data-Ranch/core-home-assistant-fork/pull/8
+Title: Upgrade aiohttp to 3.13.3 and SQLAlchemy to 2.0.44
+
+Commits:
+1. 7c41417ca0a - Upgrade aiohttp to 3.13.3 and SQLAlchemy to 2.0.44
+2. 6263545ed82 - Fix mypy errors: remove unused type: ignore comments for SQLAlchemy 2.0.44
+
+================================================================================
+STEP 8: CI RESULTS
+================================================================================
+PASSING (14 checks):
+- Check mypy
+- Check pylint
+- Check pylint on tests
+- Check all requirements
+- Check other linters
+- Check ruff-format
+- Check ruff
+- Check Dockerfile
+- Check Dockerfile.dev
+- Check script/hassfest/docker/Dockerfile
+- Prepare dependencies (3.13.11)
+- Prepare dependencies (3.14.2)
+- Prepare pre-commit base
+- Collect information & changes data
+
+FAILING (4 checks - Pre-existing Issues):
+- Dependency review (repo config issue)
+- Audit licenses (3.13.11) (caio@0.9.25 license issue)
+- Audit licenses (3.14.2) (caio@0.9.25 license issue)
+- Check hassfest (tami4 integration issue)
+
+================================================================================
+TASK COMPLETION: SUCCESS
+================================================================================
