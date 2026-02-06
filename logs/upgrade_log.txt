@@ -1,0 +1,44 @@
+================================================================================
+DEPENDENCY UPGRADE LOG
+================================================================================
+Date: $(date -u '+%Y-%m-%d %H:%M:%S UTC')
+
+UPGRADES PERFORMED:
+-------------------
+
+1. aiohttp: 3.13.2 -> 3.13.3
+   Files modified:
+   - pyproject.toml
+   - requirements.txt
+   Reason: Fix 8 CVEs (CVE-2025-69223, CVE-2025-69224, CVE-2025-69228, 
+           CVE-2025-69229, CVE-2025-69230, CVE-2025-69226, CVE-2025-69227, 
+           CVE-2025-69225)
+
+2. orjson: 3.11.3 -> 3.11.5
+   Files modified:
+   - pyproject.toml
+   - requirements.txt
+   Reason: Update to latest version (CVE-2025-67221 mitigation)
+
+3. mcp: 1.14.1 -> 1.23.0
+   Files modified:
+   - requirements_all.txt
+   - requirements_test_all.txt
+   - homeassistant/components/mcp/manifest.json
+   - homeassistant/components/mcp_server/manifest.json
+   Reason: Fix CVE-2025-66416 (DNS rebinding protection)
+
+4. PyNaCl: 1.6.0 -> 1.6.2
+   Files modified:
+   - requirements_all.txt
+   - requirements_test_all.txt
+   - homeassistant/components/mobile_app/manifest.json
+   - homeassistant/components/owntracks/manifest.json
+   Reason: Fix CVE-2025-69277 (libsodium vulnerability)
+
+TRANSITIVE DEPENDENCIES (NOT UPDATED):
+--------------------------------------
+- protobuf 6.32.0: CVE-2026-0994 - Requires upstream package updates
+- ecdsa 0.19.1: CVE-2024-23342 - No fix available
+
+================================================================================
