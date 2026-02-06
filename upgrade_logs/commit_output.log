@@ -1,0 +1,35 @@
+ruff check...........................................(no files to check)Skipped
+ruff format..........................................(no files to check)Skipped
+codespell................................................................Passed
+check json...............................................................Passed
+don't commit to branch...................................................Passed
+yamllint.............................................(no files to check)Skipped
+prettier.................................................................Passed
+mypy.................................................(no files to check)Skipped
+pylint...............................................(no files to check)Skipped
+gen_requirements_all.....................................................Failed
+- hook id: gen_requirements_all
+- files were modified by this hook
+hassfest.................................................................Passed
+hassfest-metadata........................................................Passed
+hassfest-mypy-config.................................(no files to check)Skipped
+
+
+WARNING: You have unstaged changes in your git repo. Please stage all files you want to commit.
+
+
+ruff check...........................................(no files to check)Skipped
+ruff format..........................................(no files to check)Skipped
+codespell................................................................Passed
+check json...............................................................Passed
+don't commit to branch...................................................Passed
+yamllint.............................................(no files to check)Skipped
+prettier.................................................................Passed
+mypy.................................................(no files to check)Skipped
+pylint...............................................(no files to check)Skipped
+gen_requirements_all.....................................................Passed
+hassfest.................................................................Passed
+hassfest-metadata........................................................Passed
+hassfest-mypy-config.................................(no files to check)Skipped
+[feature/framework-update_20260205_173717702 dce187b84ba] Upgrade aiohttp to 3.13.3 and SQLAlchemy to 2.0.44
+ 7 files changed, 10 insertions(+), 10 deletions(-)
