@@ -1,0 +1,7 @@
+Found 1 known vulnerability in 1 package
+Name  Version ID             Fix Versions
+----- ------- -------------- ------------
+ecdsa 0.19.1  CVE-2024-23342
+Name          Skip Reason
+------------- ------------------------------------------------------------------------------------
+homeassistant Dependency not found on PyPI and could not be audited: homeassistant (2026.1.0.dev0)
