@@ -1,0 +1,20 @@
+895168c125f Fix CI: only test against Python 3.14.2 (requires-python >= 3.14.0)
+bed43e6b5ca Remove unused type: ignore comments for SQLAlchemy 2.0.44 compatibility
+e8a8fc996a3 Update SQLAlchemy version in recorder and sql component manifests
+93b7d037534 Add task logs and reports for framework upgrade
+5c2c2662d8e Fix CI: use available Python versions (3.13/3.14) instead of unreleased 3.15
+ab628fe42a7 Fix ruff auto-fixes for forward reference quotes in type annotations
+d6620be4c08 Fix Python 3.14 compatibility: remove outdated version blocks and update type hints
+5d7c7a4e65c Add task metrics report and logs for Python 3.14 upgrade
+8b84e291d92 Fix SQLAlchemy version in requirements_all.txt and requirements_test_all.txt
+ae6064e6550 Add noqa: UP036 comments and mypy ignore for Python 3.14 compatibility
+12f4d177541 Fix: revert standard-aifc and standard-telnetlib to 3.13.0 (3.14.0 not available on PyPI)
+0eb95e9f130 Update SQLAlchemy to 2.0.44 in component manifests and regenerate requirements
+6e7173072a5 Fix CI: Use only Python 3.14.2 (3.15.0 not available in GitHub Actions)
+8f55fd649fe Add session log file
+62d4cdc1872 Add Python 3.14 upgrade logs and summary report
+26824569769 Fix duplicate SQLAlchemy version in package_constraints.txt
+7922ae053f3 Fix duplicate SQLAlchemy version in package_constraints.txt
+619885bc417 docs: Add vulnerability mitigation logs and report
+37eded23641 docs: Add vulnerability mitigation logs and report
+6cc82131e3f Add session logs and task report for framework upgrade

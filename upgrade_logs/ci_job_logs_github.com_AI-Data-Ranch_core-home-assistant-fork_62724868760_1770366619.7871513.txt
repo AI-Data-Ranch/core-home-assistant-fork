@@ -1,0 +1,409 @@
+﻿2026-02-06T08:26:41.4057257Z Current runner version: '2.331.0'
+2026-02-06T08:26:41.4105045Z ##[group]Runner Image Provisioner
+2026-02-06T08:26:41.4105819Z Hosted Compute Agent
+2026-02-06T08:26:41.4106453Z Version: 20260123.484
+2026-02-06T08:26:41.4107082Z Commit: 6bd6555ca37d84114959e1c76d2c01448ff61c5d
+2026-02-06T08:26:41.4107778Z Build Date: 2026-01-23T19:41:17Z
+2026-02-06T08:26:41.4108583Z Worker ID: {c4de798d-b132-460b-aa15-1afb8323cec3}
+2026-02-06T08:26:41.4109244Z Azure Region: westus
+2026-02-06T08:26:41.4109786Z ##[endgroup]
+2026-02-06T08:26:41.4111137Z ##[group]Operating System
+2026-02-06T08:26:41.4111911Z Ubuntu
+2026-02-06T08:26:41.4112376Z 24.04.3
+2026-02-06T08:26:41.4112820Z LTS
+2026-02-06T08:26:41.4113894Z ##[endgroup]
+2026-02-06T08:26:41.4114508Z ##[group]Runner Image
+2026-02-06T08:26:41.4115065Z Image: ubuntu-24.04
+2026-02-06T08:26:41.4115863Z Version: 20260201.15.1
+2026-02-06T08:26:41.4117491Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20260201.15/images/ubuntu/Ubuntu2404-Readme.md
+2026-02-06T08:26:41.4119581Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20260201.15
+2026-02-06T08:26:41.4120464Z ##[endgroup]
+2026-02-06T08:26:41.4121580Z ##[group]GITHUB_TOKEN Permissions
+2026-02-06T08:26:41.4123675Z Contents: read
+2026-02-06T08:26:41.4124231Z Metadata: read
+2026-02-06T08:26:41.4124788Z Packages: read
+2026-02-06T08:26:41.4125317Z ##[endgroup]
+2026-02-06T08:26:41.4127648Z Secret source: Actions
+2026-02-06T08:26:41.4128562Z Prepare workflow directory
+2026-02-06T08:26:41.4516964Z Prepare all required actions
+2026-02-06T08:26:41.4555812Z Getting action download info
+2026-02-06T08:26:41.9848808Z Download action repository 'actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8' (SHA:8e8c483db84b4bee98b60c0593521ed34d9990e8)
+2026-02-06T08:26:42.1224994Z Download action repository 'actions/setup-python@83679a892e2d95755f2dac6acb0bfd1e9ac5d548' (SHA:83679a892e2d95755f2dac6acb0bfd1e9ac5d548)
+2026-02-06T08:26:42.3401960Z Download action repository 'actions/cache@9255dc7a253b0ccc959486e2bca901246202afeb' (SHA:9255dc7a253b0ccc959486e2bca901246202afeb)
+2026-02-06T08:26:42.5500961Z Complete job name: Check mypy
+2026-02-06T08:26:42.6240616Z ##[group]Run actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8
+2026-02-06T08:26:42.6241647Z with:
+2026-02-06T08:26:42.6242141Z   repository: AI-Data-Ranch/core-home-assistant-fork
+2026-02-06T08:26:42.6242917Z   token: ***
+2026-02-06T08:26:42.6243483Z   ssh-strict: true
+2026-02-06T08:26:42.6243894Z   ssh-user: git
+2026-02-06T08:26:42.6244327Z   persist-credentials: true
+2026-02-06T08:26:42.6244806Z   clean: true
+2026-02-06T08:26:42.6245219Z   sparse-checkout-cone-mode: true
+2026-02-06T08:26:42.6245720Z   fetch-depth: 1
+2026-02-06T08:26:42.6246120Z   fetch-tags: false
+2026-02-06T08:26:42.6246530Z   show-progress: true
+2026-02-06T08:26:42.6246939Z   lfs: false
+2026-02-06T08:26:42.6247324Z   submodules: false
+2026-02-06T08:26:42.6247741Z   set-safe-directory: true
+2026-02-06T08:26:42.6248423Z env:
+2026-02-06T08:26:42.6248794Z   CACHE_VERSION: 2
+2026-02-06T08:26:42.6249219Z   UV_CACHE_VERSION: 1
+2026-02-06T08:26:42.6249688Z   MYPY_CACHE_VERSION: 1
+2026-02-06T08:26:42.6250141Z   HA_SHORT_VERSION: 2026.1
+2026-02-06T08:26:42.6250590Z   DEFAULT_PYTHON: 3.14.2
+2026-02-06T08:26:42.6251043Z   ALL_PYTHON_VERSIONS: ['3.14.2']
+2026-02-06T08:26:42.6251844Z   MARIADB_VERSIONS: ['mariadb:10.3.32','mariadb:10.6.10','mariadb:10.10.3','mariadb:10.11.2','mysql:8.0.32']
+2026-02-06T08:26:42.6252767Z   POSTGRESQL_VERSIONS: ['postgres:12.14','postgres:15.2']
+2026-02-06T08:26:42.6253595Z   PRE_COMMIT_CACHE: ~/.cache/pre-commit
+2026-02-06T08:26:42.6254126Z   UV_CACHE_DIR: /tmp/uv-cache
+2026-02-06T08:26:42.6254609Z   APT_CACHE_BASE: /home/runner/work/apt
+2026-02-06T08:26:42.6255148Z   APT_CACHE_DIR: /home/runner/work/apt/cache
+2026-02-06T08:26:42.6255729Z   APT_LIST_CACHE_DIR: /home/runner/work/apt/lists
+2026-02-06T08:26:42.6256281Z   SQLALCHEMY_WARN_20: 1
+2026-02-06T08:26:42.6256714Z   PYTHONASYNCIODEBUG: 1
+2026-02-06T08:26:42.6257135Z   HASS_CI: 1
+2026-02-06T08:26:42.6257920Z ##[endgroup]
+2026-02-06T08:26:42.7225061Z Syncing repository: AI-Data-Ranch/core-home-assistant-fork
+2026-02-06T08:26:42.7226989Z ##[group]Getting Git version info
+2026-02-06T08:26:42.7227874Z Working directory is '/home/runner/work/core-home-assistant-fork/core-home-assistant-fork'
+2026-02-06T08:26:42.7229054Z [command]/usr/bin/git version
+2026-02-06T08:26:42.7288582Z git version 2.52.0
+2026-02-06T08:26:42.7310104Z ##[endgroup]
+2026-02-06T08:26:42.7326419Z Temporarily overriding HOME='/home/runner/work/_temp/d8afc369-e320-4c8a-8d50-03892a092815' before making global git config changes
+2026-02-06T08:26:42.7328607Z Adding repository directory to the temporary git global config as a safe directory
+2026-02-06T08:26:42.7332390Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/core-home-assistant-fork/core-home-assistant-fork
+2026-02-06T08:26:42.7374623Z Deleting the contents of '/home/runner/work/core-home-assistant-fork/core-home-assistant-fork'
+2026-02-06T08:26:42.7378391Z ##[group]Initializing the repository
+2026-02-06T08:26:42.7383720Z [command]/usr/bin/git init /home/runner/work/core-home-assistant-fork/core-home-assistant-fork
+2026-02-06T08:26:42.7489722Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-02-06T08:26:42.7491194Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-02-06T08:26:42.7492668Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-02-06T08:26:42.7493965Z hint: call:
+2026-02-06T08:26:42.7494469Z hint:
+2026-02-06T08:26:42.7495387Z hint: 	git config --global init.defaultBranch <name>
+2026-02-06T08:26:42.7496553Z hint:
+2026-02-06T08:26:42.7497759Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-02-06T08:26:42.7499577Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-02-06T08:26:42.7501081Z hint:
+2026-02-06T08:26:42.7501859Z hint: 	git branch -m <name>
+2026-02-06T08:26:42.7502856Z hint:
+2026-02-06T08:26:42.7504561Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-02-06T08:26:42.7506956Z Initialized empty Git repository in /home/runner/work/core-home-assistant-fork/core-home-assistant-fork/.git/
+2026-02-06T08:26:42.7509735Z [command]/usr/bin/git remote add origin https://github.com/AI-Data-Ranch/core-home-assistant-fork
+2026-02-06T08:26:42.7546991Z ##[endgroup]
+2026-02-06T08:26:42.7547725Z ##[group]Disabling automatic garbage collection
+2026-02-06T08:26:42.7551092Z [command]/usr/bin/git config --local gc.auto 0
+2026-02-06T08:26:42.7581427Z ##[endgroup]
+2026-02-06T08:26:42.7582621Z ##[group]Setting up auth
+2026-02-06T08:26:42.7583757Z Removing SSH command configuration
+2026-02-06T08:26:42.7589950Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-02-06T08:26:42.7625105Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-02-06T08:26:42.7985887Z Removing HTTP extra header
+2026-02-06T08:26:42.7993484Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-02-06T08:26:42.8030680Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-02-06T08:26:42.8256801Z Removing includeIf entries pointing to credentials config files
+2026-02-06T08:26:42.8263875Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-02-06T08:26:42.8297381Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-02-06T08:26:42.8527007Z [command]/usr/bin/git config --file /home/runner/work/_temp/git-credentials-ede1c1e8-c8d4-4d17-81b1-351c83fe2b0f.config http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-02-06T08:26:42.8564132Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/core-home-assistant-fork/core-home-assistant-fork/.git.path /home/runner/work/_temp/git-credentials-ede1c1e8-c8d4-4d17-81b1-351c83fe2b0f.config
+2026-02-06T08:26:42.8596646Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/core-home-assistant-fork/core-home-assistant-fork/.git/worktrees/*.path /home/runner/work/_temp/git-credentials-ede1c1e8-c8d4-4d17-81b1-351c83fe2b0f.config
+2026-02-06T08:26:42.8628316Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git.path /github/runner_temp/git-credentials-ede1c1e8-c8d4-4d17-81b1-351c83fe2b0f.config
+2026-02-06T08:26:42.8661098Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git/worktrees/*.path /github/runner_temp/git-credentials-ede1c1e8-c8d4-4d17-81b1-351c83fe2b0f.config
+2026-02-06T08:26:42.8688243Z ##[endgroup]
+2026-02-06T08:26:42.8689397Z ##[group]Fetching the repository
+2026-02-06T08:26:42.8699343Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +93601e30a594620c40baa10fa81b2b459bd34632:refs/remotes/pull/16/merge
+2026-02-06T08:26:52.2769705Z From https://github.com/AI-Data-Ranch/core-home-assistant-fork
+2026-02-06T08:26:52.2771041Z  * [new ref]           93601e30a594620c40baa10fa81b2b459bd34632 -> pull/16/merge
+2026-02-06T08:26:52.2806078Z ##[endgroup]
+2026-02-06T08:26:52.2806897Z ##[group]Determining the checkout info
+2026-02-06T08:26:52.2809144Z ##[endgroup]
+2026-02-06T08:26:52.2814223Z [command]/usr/bin/git sparse-checkout disable
+2026-02-06T08:26:52.2858047Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-02-06T08:26:52.2888085Z ##[group]Checking out the ref
+2026-02-06T08:26:52.2891778Z [command]/usr/bin/git checkout --progress --force refs/remotes/pull/16/merge
+2026-02-06T08:26:53.3224578Z Updating files:  82% (18846/22962)
+2026-02-06T08:26:53.3353956Z Updating files:  83% (19059/22962)
+2026-02-06T08:26:53.3516408Z Updating files:  84% (19289/22962)
+2026-02-06T08:26:53.3691005Z Updating files:  85% (19518/22962)
+2026-02-06T08:26:53.3876496Z Updating files:  86% (19748/22962)
+2026-02-06T08:26:53.4004058Z Updating files:  87% (19977/22962)
+2026-02-06T08:26:53.4148949Z Updating files:  88% (20207/22962)
+2026-02-06T08:26:53.4278847Z Updating files:  89% (20437/22962)
+2026-02-06T08:26:53.4400023Z Updating files:  90% (20666/22962)
+2026-02-06T08:26:53.4544179Z Updating files:  91% (20896/22962)
+2026-02-06T08:26:53.4645043Z Updating files:  92% (21126/22962)
+2026-02-06T08:26:53.4796066Z Updating files:  93% (21355/22962)
+2026-02-06T08:26:53.4914599Z Updating files:  94% (21585/22962)
+2026-02-06T08:26:53.5073128Z Updating files:  95% (21814/22962)
+2026-02-06T08:26:53.5204713Z Updating files:  96% (22044/22962)
+2026-02-06T08:26:53.5367581Z Updating files:  97% (22274/22962)
+2026-02-06T08:26:53.5560838Z Updating files:  98% (22503/22962)
+2026-02-06T08:26:53.5711769Z Updating files:  99% (22733/22962)
+2026-02-06T08:26:53.5713411Z Updating files: 100% (22962/22962)
+2026-02-06T08:26:53.5714144Z Updating files: 100% (22962/22962), done.
+2026-02-06T08:26:53.5951039Z Note: switching to 'refs/remotes/pull/16/merge'.
+2026-02-06T08:26:53.5951572Z 
+2026-02-06T08:26:53.5951914Z You are in 'detached HEAD' state. You can look around, make experimental
+2026-02-06T08:26:53.5952724Z changes and commit them, and you can discard any commits you make in this
+2026-02-06T08:26:53.5953802Z state without impacting any branches by switching back to a branch.
+2026-02-06T08:26:53.5954261Z 
+2026-02-06T08:26:53.5954548Z If you want to create a new branch to retain commits you create, you may
+2026-02-06T08:26:53.5955237Z do so (now or later) by using -c with the switch command. Example:
+2026-02-06T08:26:53.5955647Z 
+2026-02-06T08:26:53.5955798Z   git switch -c <new-branch-name>
+2026-02-06T08:26:53.5956067Z 
+2026-02-06T08:26:53.5956217Z Or undo this operation with:
+2026-02-06T08:26:53.5956498Z 
+2026-02-06T08:26:53.5956620Z   git switch -
+2026-02-06T08:26:53.5957186Z 
+2026-02-06T08:26:53.5957542Z Turn off this advice by setting config variable advice.detachedHead to false
+2026-02-06T08:26:53.5958074Z 
+2026-02-06T08:26:53.5994684Z HEAD is now at 93601e30 Merge ab628fe42a763fec6e17f7a810c21ee242a210e5 into cae5bca5465e19ba8a1f83967b385d77fe2c5b15
+2026-02-06T08:26:53.5996834Z ##[endgroup]
+2026-02-06T08:26:53.6039349Z [command]/usr/bin/git log -1 --format=%H
+2026-02-06T08:26:53.6064087Z 93601e30a594620c40baa10fa81b2b459bd34632
+2026-02-06T08:26:53.6396367Z ##[group]Run actions/setup-python@83679a892e2d95755f2dac6acb0bfd1e9ac5d548
+2026-02-06T08:26:53.6396761Z with:
+2026-02-06T08:26:53.6396945Z   python-version: 3.14.2
+2026-02-06T08:26:53.6397157Z   check-latest: true
+2026-02-06T08:26:53.6397472Z   token: ***
+2026-02-06T08:26:53.6397662Z   update-environment: true
+2026-02-06T08:26:53.6397883Z   allow-prereleases: false
+2026-02-06T08:26:53.6398099Z   freethreaded: false
+2026-02-06T08:26:53.6398288Z env:
+2026-02-06T08:26:53.6398449Z   CACHE_VERSION: 2
+2026-02-06T08:26:53.6398635Z   UV_CACHE_VERSION: 1
+2026-02-06T08:26:53.6398821Z   MYPY_CACHE_VERSION: 1
+2026-02-06T08:26:53.6399023Z   HA_SHORT_VERSION: 2026.1
+2026-02-06T08:26:53.6399232Z   DEFAULT_PYTHON: 3.14.2
+2026-02-06T08:26:53.6399446Z   ALL_PYTHON_VERSIONS: ['3.14.2']
+2026-02-06T08:26:53.6399850Z   MARIADB_VERSIONS: ['mariadb:10.3.32','mariadb:10.6.10','mariadb:10.10.3','mariadb:10.11.2','mysql:8.0.32']
+2026-02-06T08:26:53.6400390Z   POSTGRESQL_VERSIONS: ['postgres:12.14','postgres:15.2']
+2026-02-06T08:26:53.6400701Z   PRE_COMMIT_CACHE: ~/.cache/pre-commit
+2026-02-06T08:26:53.6400949Z   UV_CACHE_DIR: /tmp/uv-cache
+2026-02-06T08:26:53.6401170Z   APT_CACHE_BASE: /home/runner/work/apt
+2026-02-06T08:26:53.6401429Z   APT_CACHE_DIR: /home/runner/work/apt/cache
+2026-02-06T08:26:53.6401705Z   APT_LIST_CACHE_DIR: /home/runner/work/apt/lists
+2026-02-06T08:26:53.6401970Z   SQLALCHEMY_WARN_20: 1
+2026-02-06T08:26:53.6402169Z   PYTHONASYNCIODEBUG: 1
+2026-02-06T08:26:53.6402361Z   HASS_CI: 1
+2026-02-06T08:26:53.6402529Z ##[endgroup]
+2026-02-06T08:26:53.7685221Z ##[group]Installed versions
+2026-02-06T08:26:53.7853699Z (node:2191) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-02-06T08:26:53.7854621Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-02-06T08:26:54.8424577Z Resolved as '3.14.2'
+2026-02-06T08:26:54.8478511Z Successfully set up CPython (3.14.2)
+2026-02-06T08:26:54.8479715Z ##[endgroup]
+2026-02-06T08:26:54.8692958Z ##[group]Run mypy_version=$(cat requirements_test.txt | grep 'mypy.*=' | cut -d '=' -f 3)
+2026-02-06T08:26:54.8693925Z [36;1mmypy_version=$(cat requirements_test.txt | grep 'mypy.*=' | cut -d '=' -f 3)[0m
+2026-02-06T08:26:54.8694406Z [36;1mecho "version=$mypy_version" >> $GITHUB_OUTPUT[0m
+2026-02-06T08:26:54.8694870Z [36;1mecho "key=mypy-1-$mypy_version-2026.1-$(date -u '+%Y-%m-%dT%H:%M:%s')" >> $GITHUB_OUTPUT[0m
+2026-02-06T08:26:54.8742019Z shell: /usr/bin/bash -e {0}
+2026-02-06T08:26:54.8742281Z env:
+2026-02-06T08:26:54.8742458Z   CACHE_VERSION: 2
+2026-02-06T08:26:54.8742642Z   UV_CACHE_VERSION: 1
+2026-02-06T08:26:54.8742840Z   MYPY_CACHE_VERSION: 1
+2026-02-06T08:26:54.8743037Z   HA_SHORT_VERSION: 2026.1
+2026-02-06T08:26:54.8743551Z   DEFAULT_PYTHON: 3.14.2
+2026-02-06T08:26:54.8743769Z   ALL_PYTHON_VERSIONS: ['3.14.2']
+2026-02-06T08:26:54.8744211Z   MARIADB_VERSIONS: ['mariadb:10.3.32','mariadb:10.6.10','mariadb:10.10.3','mariadb:10.11.2','mysql:8.0.32']
+2026-02-06T08:26:54.8744745Z   POSTGRESQL_VERSIONS: ['postgres:12.14','postgres:15.2']
+2026-02-06T08:26:54.8745073Z   PRE_COMMIT_CACHE: ~/.cache/pre-commit
+2026-02-06T08:26:54.8745335Z   UV_CACHE_DIR: /tmp/uv-cache
+2026-02-06T08:26:54.8745572Z   APT_CACHE_BASE: /home/runner/work/apt
+2026-02-06T08:26:54.8745831Z   APT_CACHE_DIR: /home/runner/work/apt/cache
+2026-02-06T08:26:54.8746118Z   APT_LIST_CACHE_DIR: /home/runner/work/apt/lists
+2026-02-06T08:26:54.8746384Z   SQLALCHEMY_WARN_20: 1
+2026-02-06T08:26:54.8746593Z   PYTHONASYNCIODEBUG: 1
+2026-02-06T08:26:54.8747034Z   HASS_CI: 1
+2026-02-06T08:26:54.8747270Z   pythonLocation: /opt/hostedtoolcache/Python/3.14.2/x64
+2026-02-06T08:26:54.8747670Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.14.2/x64/lib/pkgconfig
+2026-02-06T08:26:54.8748093Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.2/x64
+2026-02-06T08:26:54.8748454Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.2/x64
+2026-02-06T08:26:54.8748813Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.2/x64
+2026-02-06T08:26:54.8749188Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.14.2/x64/lib
+2026-02-06T08:26:54.8749485Z ##[endgroup]
+2026-02-06T08:26:54.8932015Z ##[group]Run actions/cache/restore@9255dc7a253b0ccc959486e2bca901246202afeb
+2026-02-06T08:26:54.8932387Z with:
+2026-02-06T08:26:54.8932557Z   path: venv
+2026-02-06T08:26:54.8932731Z   fail-on-cache-miss: true
+2026-02-06T08:26:54.8934736Z   key: Linux-X64-3.14.2-venv-2-2026.1-dfd10884c9e0cdef344e25841b7e7f590666ba37c7b95051643ae91da0b6151f-cd9e213b4d995727cd4c4c3d8e6a48ff3393bad0f9f3052086cc846d43f949d3-1550703eac760afbac44022ae8d0455bdcb9c31025252c3b5ebf424cd8801b8d-611a7b51436c187496931d1a651b8289db97d0519d6069d5a4eb0b2af41382dc-e922ffbdeedcb68130699699fd236dfcdad07bf93b28043809eb6e44771e177d
+2026-02-06T08:26:54.8936560Z   enableCrossOsArchive: false
+2026-02-06T08:26:54.8936776Z   lookup-only: false
+2026-02-06T08:26:54.8936970Z env:
+2026-02-06T08:26:54.8937120Z   CACHE_VERSION: 2
+2026-02-06T08:26:54.8937298Z   UV_CACHE_VERSION: 1
+2026-02-06T08:26:54.8937481Z   MYPY_CACHE_VERSION: 1
+2026-02-06T08:26:54.8937677Z   HA_SHORT_VERSION: 2026.1
+2026-02-06T08:26:54.8937906Z   DEFAULT_PYTHON: 3.14.2
+2026-02-06T08:26:54.8938112Z   ALL_PYTHON_VERSIONS: ['3.14.2']
+2026-02-06T08:26:54.8938512Z   MARIADB_VERSIONS: ['mariadb:10.3.32','mariadb:10.6.10','mariadb:10.10.3','mariadb:10.11.2','mysql:8.0.32']
+2026-02-06T08:26:54.8938986Z   POSTGRESQL_VERSIONS: ['postgres:12.14','postgres:15.2']
+2026-02-06T08:26:54.8939284Z   PRE_COMMIT_CACHE: ~/.cache/pre-commit
+2026-02-06T08:26:54.8939531Z   UV_CACHE_DIR: /tmp/uv-cache
+2026-02-06T08:26:54.8939766Z   APT_CACHE_BASE: /home/runner/work/apt
+2026-02-06T08:26:54.8940023Z   APT_CACHE_DIR: /home/runner/work/apt/cache
+2026-02-06T08:26:54.8940334Z   APT_LIST_CACHE_DIR: /home/runner/work/apt/lists
+2026-02-06T08:26:54.8940594Z   SQLALCHEMY_WARN_20: 1
+2026-02-06T08:26:54.8940793Z   PYTHONASYNCIODEBUG: 1
+2026-02-06T08:26:54.8940978Z   HASS_CI: 1
+2026-02-06T08:26:54.8941206Z   pythonLocation: /opt/hostedtoolcache/Python/3.14.2/x64
+2026-02-06T08:26:54.8941580Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.14.2/x64/lib/pkgconfig
+2026-02-06T08:26:54.8941963Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.2/x64
+2026-02-06T08:26:54.8942298Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.2/x64
+2026-02-06T08:26:54.8942642Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.2/x64
+2026-02-06T08:26:54.8942987Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.14.2/x64/lib
+2026-02-06T08:26:54.8943493Z ##[endgroup]
+2026-02-06T08:26:55.2917232Z Cache hit for: Linux-X64-3.14.2-venv-2-2026.1-dfd10884c9e0cdef344e25841b7e7f590666ba37c7b95051643ae91da0b6151f-cd9e213b4d995727cd4c4c3d8e6a48ff3393bad0f9f3052086cc846d43f949d3-1550703eac760afbac44022ae8d0455bdcb9c31025252c3b5ebf424cd8801b8d-611a7b51436c187496931d1a651b8289db97d0519d6069d5a4eb0b2af41382dc-e922ffbdeedcb68130699699fd236dfcdad07bf93b28043809eb6e44771e177d
+2026-02-06T08:26:56.6124926Z Received 0 of 509908834 (0.0%), 0.0 MBs/sec
+2026-02-06T08:26:57.6085100Z Received 134217728 of 509908834 (26.3%), 63.9 MBs/sec
+2026-02-06T08:26:58.6091336Z Received 268435456 of 509908834 (52.6%), 85.3 MBs/sec
+2026-02-06T08:26:59.6098217Z Received 402653184 of 509908834 (79.0%), 95.9 MBs/sec
+2026-02-06T08:27:00.2539579Z Received 509908834 of 509908834 (100.0%), 104.6 MBs/sec
+2026-02-06T08:27:00.2542744Z Cache Size: ~486 MB (509908834 B)
+2026-02-06T08:27:00.2644100Z [command]/usr/bin/tar -xf /home/runner/work/_temp/aa39f1d9-bbc1-4d3b-995f-924745f549f6/cache.tzst -P -C /home/runner/work/core-home-assistant-fork/core-home-assistant-fork --use-compress-program unzstd
+2026-02-06T08:27:06.3051069Z Cache restored successfully
+2026-02-06T08:27:06.4038208Z Cache restored from key: Linux-X64-3.14.2-venv-2-2026.1-dfd10884c9e0cdef344e25841b7e7f590666ba37c7b95051643ae91da0b6151f-cd9e213b4d995727cd4c4c3d8e6a48ff3393bad0f9f3052086cc846d43f949d3-1550703eac760afbac44022ae8d0455bdcb9c31025252c3b5ebf424cd8801b8d-611a7b51436c187496931d1a651b8289db97d0519d6069d5a4eb0b2af41382dc-e922ffbdeedcb68130699699fd236dfcdad07bf93b28043809eb6e44771e177d
+2026-02-06T08:27:06.4196774Z ##[group]Run actions/cache@9255dc7a253b0ccc959486e2bca901246202afeb
+2026-02-06T08:27:06.4197135Z with:
+2026-02-06T08:27:06.4197318Z   path: .mypy_cache
+2026-02-06T08:27:06.4197619Z   key: Linux-X64-3.14.2-mypy-1-1.19.0a4-2026.1-2026-02-06T08:26:1770366414
+2026-02-06T08:27:06.4198018Z   restore-keys: Linux-X64-3.14.2-mypy-1-1.19.0a4-2026.1-
+
+2026-02-06T08:27:06.4198331Z   enableCrossOsArchive: false
+2026-02-06T08:27:06.4198568Z   fail-on-cache-miss: false
+2026-02-06T08:27:06.4198785Z   lookup-only: false
+2026-02-06T08:27:06.4198989Z   save-always: false
+2026-02-06T08:27:06.4199169Z env:
+2026-02-06T08:27:06.4199332Z   CACHE_VERSION: 2
+2026-02-06T08:27:06.4199510Z   UV_CACHE_VERSION: 1
+2026-02-06T08:27:06.4199702Z   MYPY_CACHE_VERSION: 1
+2026-02-06T08:27:06.4199900Z   HA_SHORT_VERSION: 2026.1
+2026-02-06T08:27:06.4200103Z   DEFAULT_PYTHON: 3.14.2
+2026-02-06T08:27:06.4200312Z   ALL_PYTHON_VERSIONS: ['3.14.2']
+2026-02-06T08:27:06.4200744Z   MARIADB_VERSIONS: ['mariadb:10.3.32','mariadb:10.6.10','mariadb:10.10.3','mariadb:10.11.2','mysql:8.0.32']
+2026-02-06T08:27:06.4201227Z   POSTGRESQL_VERSIONS: ['postgres:12.14','postgres:15.2']
+2026-02-06T08:27:06.4201536Z   PRE_COMMIT_CACHE: ~/.cache/pre-commit
+2026-02-06T08:27:06.4201786Z   UV_CACHE_DIR: /tmp/uv-cache
+2026-02-06T08:27:06.4202012Z   APT_CACHE_BASE: /home/runner/work/apt
+2026-02-06T08:27:06.4202275Z   APT_CACHE_DIR: /home/runner/work/apt/cache
+2026-02-06T08:27:06.4202560Z   APT_LIST_CACHE_DIR: /home/runner/work/apt/lists
+2026-02-06T08:27:06.4202823Z   SQLALCHEMY_WARN_20: 1
+2026-02-06T08:27:06.4203034Z   PYTHONASYNCIODEBUG: 1
+2026-02-06T08:27:06.4203474Z   HASS_CI: 1
+2026-02-06T08:27:06.4203708Z   pythonLocation: /opt/hostedtoolcache/Python/3.14.2/x64
+2026-02-06T08:27:06.4204097Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.14.2/x64/lib/pkgconfig
+2026-02-06T08:27:06.4204486Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.2/x64
+2026-02-06T08:27:06.4204833Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.2/x64
+2026-02-06T08:27:06.4205184Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.2/x64
+2026-02-06T08:27:06.4205543Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.14.2/x64/lib
+2026-02-06T08:27:06.4205875Z ##[endgroup]
+2026-02-06T08:27:06.8352648Z Cache not found for input keys: Linux-X64-3.14.2-mypy-1-1.19.0a4-2026.1-2026-02-06T08:26:1770366414, Linux-X64-3.14.2-mypy-1-1.19.0a4-2026.1-
+2026-02-06T08:27:06.8433858Z ##[group]Run echo "::add-matcher::.github/workflows/matchers/mypy.json"
+2026-02-06T08:27:06.8434373Z [36;1mecho "::add-matcher::.github/workflows/matchers/mypy.json"[0m
+2026-02-06T08:27:06.8468121Z shell: /usr/bin/bash -e {0}
+2026-02-06T08:27:06.8468357Z env:
+2026-02-06T08:27:06.8468534Z   CACHE_VERSION: 2
+2026-02-06T08:27:06.8468738Z   UV_CACHE_VERSION: 1
+2026-02-06T08:27:06.8468933Z   MYPY_CACHE_VERSION: 1
+2026-02-06T08:27:06.8469141Z   HA_SHORT_VERSION: 2026.1
+2026-02-06T08:27:06.8469352Z   DEFAULT_PYTHON: 3.14.2
+2026-02-06T08:27:06.8469569Z   ALL_PYTHON_VERSIONS: ['3.14.2']
+2026-02-06T08:27:06.8469990Z   MARIADB_VERSIONS: ['mariadb:10.3.32','mariadb:10.6.10','mariadb:10.10.3','mariadb:10.11.2','mysql:8.0.32']
+2026-02-06T08:27:06.8470486Z   POSTGRESQL_VERSIONS: ['postgres:12.14','postgres:15.2']
+2026-02-06T08:27:06.8470801Z   PRE_COMMIT_CACHE: ~/.cache/pre-commit
+2026-02-06T08:27:06.8471059Z   UV_CACHE_DIR: /tmp/uv-cache
+2026-02-06T08:27:06.8471335Z   APT_CACHE_BASE: /home/runner/work/apt
+2026-02-06T08:27:06.8471598Z   APT_CACHE_DIR: /home/runner/work/apt/cache
+2026-02-06T08:27:06.8471885Z   APT_LIST_CACHE_DIR: /home/runner/work/apt/lists
+2026-02-06T08:27:06.8472335Z   SQLALCHEMY_WARN_20: 1
+2026-02-06T08:27:06.8472546Z   PYTHONASYNCIODEBUG: 1
+2026-02-06T08:27:06.8472736Z   HASS_CI: 1
+2026-02-06T08:27:06.8472971Z   pythonLocation: /opt/hostedtoolcache/Python/3.14.2/x64
+2026-02-06T08:27:06.8473596Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.14.2/x64/lib/pkgconfig
+2026-02-06T08:27:06.8473988Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.2/x64
+2026-02-06T08:27:06.8474339Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.2/x64
+2026-02-06T08:27:06.8474693Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.2/x64
+2026-02-06T08:27:06.8475048Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.14.2/x64/lib
+2026-02-06T08:27:06.8475340Z ##[endgroup]
+2026-02-06T08:27:06.8565637Z ##[group]Run . venv/bin/activate
+2026-02-06T08:27:06.8565939Z [36;1m. venv/bin/activate[0m
+2026-02-06T08:27:06.8566168Z [36;1mpython --version[0m
+2026-02-06T08:27:06.8566400Z [36;1mmypy homeassistant pylint[0m
+2026-02-06T08:27:06.8597201Z shell: /usr/bin/bash -e {0}
+2026-02-06T08:27:06.8597457Z env:
+2026-02-06T08:27:06.8597631Z   CACHE_VERSION: 2
+2026-02-06T08:27:06.8597822Z   UV_CACHE_VERSION: 1
+2026-02-06T08:27:06.8598015Z   MYPY_CACHE_VERSION: 1
+2026-02-06T08:27:06.8598217Z   HA_SHORT_VERSION: 2026.1
+2026-02-06T08:27:06.8598430Z   DEFAULT_PYTHON: 3.14.2
+2026-02-06T08:27:06.8598638Z   ALL_PYTHON_VERSIONS: ['3.14.2']
+2026-02-06T08:27:06.8599061Z   MARIADB_VERSIONS: ['mariadb:10.3.32','mariadb:10.6.10','mariadb:10.10.3','mariadb:10.11.2','mysql:8.0.32']
+2026-02-06T08:27:06.8599561Z   POSTGRESQL_VERSIONS: ['postgres:12.14','postgres:15.2']
+2026-02-06T08:27:06.8599868Z   PRE_COMMIT_CACHE: ~/.cache/pre-commit
+2026-02-06T08:27:06.8600125Z   UV_CACHE_DIR: /tmp/uv-cache
+2026-02-06T08:27:06.8600394Z   APT_CACHE_BASE: /home/runner/work/apt
+2026-02-06T08:27:06.8600661Z   APT_CACHE_DIR: /home/runner/work/apt/cache
+2026-02-06T08:27:06.8600948Z   APT_LIST_CACHE_DIR: /home/runner/work/apt/lists
+2026-02-06T08:27:06.8601218Z   SQLALCHEMY_WARN_20: 1
+2026-02-06T08:27:06.8601423Z   PYTHONASYNCIODEBUG: 1
+2026-02-06T08:27:06.8601619Z   HASS_CI: 1
+2026-02-06T08:27:06.8601855Z   pythonLocation: /opt/hostedtoolcache/Python/3.14.2/x64
+2026-02-06T08:27:06.8621665Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.14.2/x64/lib/pkgconfig
+2026-02-06T08:27:06.8622110Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.2/x64
+2026-02-06T08:27:06.8622472Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.2/x64
+2026-02-06T08:27:06.8622820Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.2/x64
+2026-02-06T08:27:06.8623298Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.14.2/x64/lib
+2026-02-06T08:27:06.8623607Z ##[endgroup]
+2026-02-06T08:27:06.8779039Z Python 3.14.2
+2026-02-06T08:27:07.7353818Z /opt/hostedtoolcache/Python/3.14.2/x64/lib/python3.14/importlib/__init__.py:88: UserWarning: Core Pydantic V1 functionality isn't compatible with Python 3.14 or greater.
+2026-02-06T08:27:07.7356455Z   return _bootstrap._gcd_import(name[level:], package, level)
+2026-02-06T08:29:14.6604998Z ##[error]homeassistant/scripts/benchmark/__init__.py:39: error: function asyncio.events.get_event_loop_policy is deprecated: Deprecated since Python 3.14; will be removed in Python 3.16.  [deprecated]
+2026-02-06T08:29:16.6411715Z ##[error]homeassistant/components/ssdp/common.py:18: error: Item "IPv4Address" of "IPv4Address | IPv6Address" has no attribute "scope_id"  [union-attr]
+2026-02-06T08:29:27.5858231Z ##[error]homeassistant/components/ssdp/server.py:174: error: Item "IPv4Address" of "IPv4Address | IPv6Address" has no attribute "scope_id"  [union-attr]
+2026-02-06T08:29:27.5862829Z ##[error]homeassistant/components/ssdp/server.py:179: error: Item "IPv4Address" of "IPv4Address | IPv6Address" has no attribute "scope_id"  [union-attr]
+2026-02-06T08:29:27.6095099Z ##[error]homeassistant/components/ssdp/scanner.py:263: error: Item "IPv4Address" of "IPv4Address | IPv6Address" has no attribute "scope_id"  [union-attr]
+2026-02-06T08:29:27.6100374Z ##[error]homeassistant/components/ssdp/scanner.py:268: error: Item "IPv4Address" of "IPv4Address | IPv6Address" has no attribute "scope_id"  [union-attr]
+2026-02-06T08:29:28.1889525Z ##[error]homeassistant/components/shelly/utils.py:256: error: Generator has incompatible item type "IPv4Address | IPv6Address"; expected "IPv4Address"  [misc]
+2026-02-06T08:30:00.1163915Z ##[error]homeassistant/runner.py:176: error: Name "asyncio.DefaultEventLoopPolicy" is not defined  [name-defined]
+2026-02-06T08:30:00.1168928Z ##[error]homeassistant/runner.py:176: error: Class cannot subclass "DefaultEventLoopPolicy" (has type "Any")  [misc]
+2026-02-06T08:30:00.1171819Z ##[error]homeassistant/runner.py:187: error: Unused "type: ignore[attr-defined]" comment  [unused-ignore]
+2026-02-06T08:30:00.1176144Z ##[error]homeassistant/runner.py:284: error: function asyncio.events.set_event_loop_policy is deprecated: Deprecated since Python 3.14; will be removed in Python 3.16.  [deprecated]
+2026-02-06T08:30:00.1668714Z ##[error]homeassistant/scripts/auth.py:51: error: function asyncio.events.set_event_loop_policy is deprecated: Deprecated since Python 3.14; will be removed in Python 3.16.  [deprecated]
+2026-02-06T08:30:00.1718621Z ##[error]homeassistant/scripts/__init__.py:64: error: function asyncio.events.set_event_loop_policy is deprecated: Deprecated since Python 3.14; will be removed in Python 3.16.  [deprecated]
+2026-02-06T08:30:00.2101265Z Found 13 errors in 8 files (checked 8668 source files)
+2026-02-06T08:30:00.4906111Z ##[error]Process completed with exit code 1.
+2026-02-06T08:30:00.4995913Z Post job cleanup.
+2026-02-06T08:30:00.5799515Z [command]/usr/bin/git version
+2026-02-06T08:30:00.5839377Z git version 2.52.0
+2026-02-06T08:30:00.5878520Z Temporarily overriding HOME='/home/runner/work/_temp/b70f00c4-2780-4942-807d-76c40f982dc3' before making global git config changes
+2026-02-06T08:30:00.5880006Z Adding repository directory to the temporary git global config as a safe directory
+2026-02-06T08:30:00.5885649Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/core-home-assistant-fork/core-home-assistant-fork
+2026-02-06T08:30:00.5918204Z Removing SSH command configuration
+2026-02-06T08:30:00.5925502Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-02-06T08:30:00.5960520Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-02-06T08:30:00.6219662Z Removing HTTP extra header
+2026-02-06T08:30:00.6225902Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-02-06T08:30:00.6261768Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-02-06T08:30:00.6515913Z Removing includeIf entries pointing to credentials config files
+2026-02-06T08:30:00.6523690Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-02-06T08:30:00.6549093Z includeif.gitdir:/home/runner/work/core-home-assistant-fork/core-home-assistant-fork/.git.path
+2026-02-06T08:30:00.6550575Z includeif.gitdir:/home/runner/work/core-home-assistant-fork/core-home-assistant-fork/.git/worktrees/*.path
+2026-02-06T08:30:00.6551706Z includeif.gitdir:/github/workspace/.git.path
+2026-02-06T08:30:00.6552417Z includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-02-06T08:30:00.6560131Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/core-home-assistant-fork/core-home-assistant-fork/.git.path
+2026-02-06T08:30:00.6582833Z /home/runner/work/_temp/git-credentials-ede1c1e8-c8d4-4d17-81b1-351c83fe2b0f.config
+2026-02-06T08:30:00.6594511Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/core-home-assistant-fork/core-home-assistant-fork/.git.path /home/runner/work/_temp/git-credentials-ede1c1e8-c8d4-4d17-81b1-351c83fe2b0f.config
+2026-02-06T08:30:00.6627651Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/core-home-assistant-fork/core-home-assistant-fork/.git/worktrees/*.path
+2026-02-06T08:30:00.6649535Z /home/runner/work/_temp/git-credentials-ede1c1e8-c8d4-4d17-81b1-351c83fe2b0f.config
+2026-02-06T08:30:00.6659267Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/core-home-assistant-fork/core-home-assistant-fork/.git/worktrees/*.path /home/runner/work/_temp/git-credentials-ede1c1e8-c8d4-4d17-81b1-351c83fe2b0f.config
+2026-02-06T08:30:00.6690513Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git.path
+2026-02-06T08:30:00.6711545Z /github/runner_temp/git-credentials-ede1c1e8-c8d4-4d17-81b1-351c83fe2b0f.config
+2026-02-06T08:30:00.6721647Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git.path /github/runner_temp/git-credentials-ede1c1e8-c8d4-4d17-81b1-351c83fe2b0f.config
+2026-02-06T08:30:00.6753986Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-02-06T08:30:00.6775643Z /github/runner_temp/git-credentials-ede1c1e8-c8d4-4d17-81b1-351c83fe2b0f.config
+2026-02-06T08:30:00.6785766Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git/worktrees/*.path /github/runner_temp/git-credentials-ede1c1e8-c8d4-4d17-81b1-351c83fe2b0f.config
+2026-02-06T08:30:00.6819605Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-02-06T08:30:00.7097789Z Removing credentials config '/home/runner/work/_temp/git-credentials-ede1c1e8-c8d4-4d17-81b1-351c83fe2b0f.config'
+2026-02-06T08:30:00.7247572Z Cleaning up orphan processes
