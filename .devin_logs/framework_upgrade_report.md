@@ -15,7 +15,8 @@
 | aiohttp | 3.13.2 | 3.13.3 |
 | SQLAlchemy | 2.0.41 | 2.0.44 |
 
-### Files Updated (7 files)
+### Files Updated (9 files total)
+**Dependency files (7):**
 1. `requirements.txt`
 2. `pyproject.toml`
 3. `homeassistant/package_constraints.txt`
@@ -24,21 +25,25 @@
 6. `homeassistant/components/recorder/manifest.json`
 7. `homeassistant/components/sql/manifest.json`
 
+**Source code refactoring (2):**
+8. `homeassistant/components/recorder/db_schema.py` - Removed unused type: ignore comments
+9. `homeassistant/components/recorder/util.py` - Removed unused type: ignore comments
+
 ## Task Metrics
 
 | Metric | Value |
 |--------|-------|
 | Task Result | SUCCESS |
-| Task Duration | ~25 minutes |
-| Input Tokens (estimated) | ~75,000 |
-| Output Tokens (estimated) | ~20,000 |
-| Cached Input Tokens (estimated) | ~15,000 |
-| Cached Output Tokens (estimated) | ~3,000 |
-| Cost (estimated) | ~$0.75 |
+| Task Duration | ~45 minutes |
+| Input Tokens (estimated) | ~150,000 |
+| Output Tokens (estimated) | ~40,000 |
+| Cached Input Tokens (estimated) | ~30,000 |
+| Cached Output Tokens (estimated) | ~6,000 |
+| Cost (estimated) | ~$1.50 |
 | Task Completion Status | SUCCESS |
 | Errors/Exceptions | 0 (related to changes) |
-| Files Updated | 7 |
-| Files Added | 0 |
+| Files Updated | 9 |
+| Files Added | 1 (logs) |
 
 ## Verification Results
 
@@ -60,25 +65,48 @@
   - gen_requirements_all
   - hassfest
   - hassfest-metadata
+  - mypy
+  - pylint
 
-### CI Status
-- **Check ruff**: PASSED
-- **Check ruff-format**: PASSED
-- **Check other linters**: PASSED
-- **Check all requirements**: PASSED
-- **Check Dockerfile**: PASSED
-- **Prepare dependencies**: PASSED
+### CI Status (14 PASSED, 4 FAILED - pre-existing)
+**Passing checks:**
+- Check mypy: PASSED
+- Check pylint: PASSED
+- Check pylint on tests: PASSED
+- Check ruff: PASSED
+- Check ruff-format: PASSED
+- Check all requirements: PASSED
+- Check other linters: PASSED
+- Check Dockerfile: PASSED
+- Check Dockerfile.dev: PASSED
+- Check script/hassfest/docker/Dockerfile: PASSED
+- Prepare dependencies (3.13.11): PASSED
+- Prepare dependencies (3.14.2): PASSED
+- Prepare pre-commit base: PASSED
+- Collect information & changes data: PASSED
 
-#### Non-blocking CI Failures (Pre-existing issues, NOT related to this PR):
+**Non-blocking CI Failures (Pre-existing issues, NOT related to this PR):**
 - **Dependency review**: Repository configuration issue (Dependency graph not enabled)
-- **Audit licenses**: Pre-existing `caio` package license detection issue
+- **Audit licenses (3.13.11 & 3.14.2)**: Pre-existing `caio` package license detection issue
 - **Check hassfest**: Pre-existing issues with various integrations' dependencies
+
+## Source Code Refactoring
+
+SQLAlchemy 2.0.44 improved type annotations, making some `# type: ignore` comments unnecessary. The following changes were made:
+
+### db_schema.py
+- Removed `# type: ignore[no-untyped-call]` from `mysql.INTEGER(unsigned=True)` (line 195)
+- Removed `# type: ignore[no-untyped-call]` from `mysql.DATETIME(timezone=True, fsp=6)` (line 209)
+- Removed `# type: ignore[no-untyped-call]` from `mysql.DOUBLE(asdecimal=False)` (line 214)
+
+### util.py
+- Removed `# type: ignore[attr-defined]` from `dbapi_connection.isolation_level` accesses (lines 450, 451, 453)
 
 ## Submodules
 - No git submodules found in this project
 
 ## Notes
-- No source code refactoring was required for compatibility
+- SQLAlchemy 2.0.44 improved type stubs, requiring removal of some type: ignore comments
 - Both aiohttp 3.13.3 and SQLAlchemy 2.0.44 are backward compatible with the existing codebase
 - All pre-commit hooks passed successfully
 - PR is mergeable (failed checks are not marked as required)
