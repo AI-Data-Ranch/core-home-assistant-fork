@@ -42,7 +42,7 @@ from .const import (
     SIGNAL_DISCONNECTED,
 )
 
-if sys.version_info < (3, 14):
+if sys.version_info < (3, 14):  # noqa: UP036
     from pyatv import connect, exceptions, scan
     from pyatv.conf import AppleTV
     from pyatv.const import DeviceModel, Protocol
@@ -64,7 +64,7 @@ BACKOFF_TIME_UPPER_LIMIT = 300  # Five minutes
 
 PLATFORMS = [Platform.MEDIA_PLAYER, Platform.REMOTE]
 
-if sys.version_info < (3, 14):
+if sys.version_info < (3, 14):  # noqa: UP036
     AUTH_EXCEPTIONS = (
         exceptions.AuthenticationError,
         exceptions.InvalidCredentialsError,
@@ -95,7 +95,7 @@ type AppleTvConfigEntry = ConfigEntry[AppleTVManager]
 
 async def async_setup_entry(hass: HomeAssistant, entry: AppleTvConfigEntry) -> bool:
     """Set up a config entry for Apple TV."""
-    if sys.version_info >= (3, 14):
+    if sys.version_info >= (3, 14):  # noqa: UP036
         raise HomeAssistantError(
             "Apple TV is not supported on Python 3.14. Please use Python 3.13."
         )
