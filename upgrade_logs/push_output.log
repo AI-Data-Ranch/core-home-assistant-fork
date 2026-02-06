@@ -1,0 +1,7 @@
+To https://git-manager.devin.ai/proxy/github.com/AI-Data-Ranch/core-home-assistant-fork
+ ! [rejected]                feature/framework-update_20260205_173717702 -> feature/framework-update_20260205_173717702 (non-fast-forward)
+error: failed to push some refs to 'https://git-manager.devin.ai/proxy/github.com/AI-Data-Ranch/core-home-assistant-fork'
+hint: Updates were rejected because the tip of your current branch is behind
+hint: its remote counterpart. Integrate the remote changes (e.g.
+hint: 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
