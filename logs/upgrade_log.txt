@@ -1,0 +1,179 @@
+Collecting aiohttp==3.13.3
+  Downloading aiohttp-3.13.3-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (8.1 kB)
+Collecting SQLAlchemy==2.0.44
+  Downloading sqlalchemy-2.0.44-cp313-cp313-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (9.5 kB)
+Requirement already satisfied: aiohappyeyeballs>=2.5.0 in ./.venv/lib/python3.13/site-packages (from aiohttp==3.13.3) (2.6.1)
+Requirement already satisfied: aiosignal>=1.4.0 in ./.venv/lib/python3.13/site-packages (from aiohttp==3.13.3) (1.4.0)
+Requirement already satisfied: attrs>=17.3.0 in ./.venv/lib/python3.13/site-packages (from aiohttp==3.13.3) (25.4.0)
+Requirement already satisfied: frozenlist>=1.1.1 in ./.venv/lib/python3.13/site-packages (from aiohttp==3.13.3) (1.8.0)
+Requirement already satisfied: multidict<7.0,>=4.5 in ./.venv/lib/python3.13/site-packages (from aiohttp==3.13.3) (6.7.1)
+Requirement already satisfied: propcache>=0.2.0 in ./.venv/lib/python3.13/site-packages (from aiohttp==3.13.3) (0.4.1)
+Requirement already satisfied: yarl<2.0,>=1.17.0 in ./.venv/lib/python3.13/site-packages (from aiohttp==3.13.3) (1.22.0)
+Requirement already satisfied: greenlet>=1 in ./.venv/lib/python3.13/site-packages (from SQLAlchemy==2.0.44) (3.3.1)
+Requirement already satisfied: typing-extensions>=4.6.0 in ./.venv/lib/python3.13/site-packages (from SQLAlchemy==2.0.44) (4.15.0)
+Requirement already satisfied: idna>=2.0 in ./.venv/lib/python3.13/site-packages (from yarl<2.0,>=1.17.0->aiohttp==3.13.3) (3.11)
+Downloading aiohttp-3.13.3-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (1.7 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.7/1.7 MB 65.6 MB/s  0:00:00
+Downloading sqlalchemy-2.0.44-cp313-cp313-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.3/3.3 MB 135.9 MB/s  0:00:00
+Installing collected packages: SQLAlchemy, aiohttp
+  Attempting uninstall: SQLAlchemy
+    Found existing installation: SQLAlchemy 2.0.41
+    Uninstalling SQLAlchemy-2.0.41:
+      Successfully uninstalled SQLAlchemy-2.0.41
+  Attempting uninstall: aiohttp
+    Found existing installation: aiohttp 3.13.2
+    Uninstalling aiohttp-3.13.2:
+      Successfully uninstalled aiohttp-3.13.2
+
+ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+homeassistant 2026.1.0.dev0 requires aiohttp==3.13.2, but you have aiohttp 3.13.3 which is incompatible.
+homeassistant 2026.1.0.dev0 requires SQLAlchemy==2.0.41, but you have sqlalchemy 2.0.44 which is incompatible.
+Successfully installed SQLAlchemy-2.0.44 aiohttp-3.13.3
+Obtaining file:///home/ubuntu/repos/core-home-assistant-fork
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Checking if build backend supports build_editable: started
+  Checking if build backend supports build_editable: finished with status 'done'
+  Getting requirements to build editable: started
+  Getting requirements to build editable: finished with status 'done'
+  Preparing editable metadata (pyproject.toml): started
+  Preparing editable metadata (pyproject.toml): finished with status 'done'
+Requirement already satisfied: aiodns==3.6.1 in ./.venv/lib/python3.13/site-packages (from homeassistant==2026.1.0.dev0) (3.6.1)
+Requirement already satisfied: aiohasupervisor==0.3.3 in ./.venv/lib/python3.13/site-packages (from homeassistant==2026.1.0.dev0) (0.3.3)
+Requirement already satisfied: aiohttp==3.13.3 in ./.venv/lib/python3.13/site-packages (from homeassistant==2026.1.0.dev0) (3.13.3)
+Requirement already satisfied: aiohttp_cors==0.8.1 in ./.venv/lib/python3.13/site-packages (from homeassistant==2026.1.0.dev0) (0.8.1)
+Requirement already satisfied: aiohttp-fast-zlib==0.3.0 in ./.venv/lib/python3.13/site-packages (from homeassistant==2026.1.0.dev0) (0.3.0)
+Requirement already satisfied: aiohttp-asyncmdnsresolver==0.1.1 in ./.venv/lib/python3.13/site-packages (from homeassistant==2026.1.0.dev0) (0.1.1)
+Requirement already satisfied: aiozoneinfo==0.2.3 in ./.venv/lib/python3.13/site-packages (from homeassistant==2026.1.0.dev0) (0.2.3)
+Requirement already satisfied: annotatedyaml==1.0.2 in ./.venv/lib/python3.13/site-packages (from homeassistant==2026.1.0.dev0) (1.0.2)
+Requirement already satisfied: astral==2.2 in ./.venv/lib/python3.13/site-packages (from homeassistant==2026.1.0.dev0) (2.2)
+Requirement already satisfied: async-interrupt==1.2.2 in ./.venv/lib/python3.13/site-packages (from homeassistant==2026.1.0.dev0) (1.2.2)
+Requirement already satisfied: attrs==25.4.0 in ./.venv/lib/python3.13/site-packages (from homeassistant==2026.1.0.dev0) (25.4.0)
+Requirement already satisfied: atomicwrites-homeassistant==1.4.1 in ./.venv/lib/python3.13/site-packages (from homeassistant==2026.1.0.dev0) (1.4.1)
+Requirement already satisfied: audioop-lts==0.2.1 in ./.venv/lib/python3.13/site-packages (from homeassistant==2026.1.0.dev0) (0.2.1)
+Requirement already satisfied: awesomeversion==25.8.0 in ./.venv/lib/python3.13/site-packages (from homeassistant==2026.1.0.dev0) (25.8.0)
+Requirement already satisfied: bcrypt==5.0.0 in ./.venv/lib/python3.13/site-packages (from homeassistant==2026.1.0.dev0) (5.0.0)
+Requirement already satisfied: certifi>=2021.5.30 in ./.venv/lib/python3.13/site-packages (from homeassistant==2026.1.0.dev0) (2026.1.4)
+Requirement already satisfied: ciso8601==2.3.3 in ./.venv/lib/python3.13/site-packages (from homeassistant==2026.1.0.dev0) (2.3.3)
+Requirement already satisfied: cronsim==2.7 in ./.venv/lib/python3.13/site-packages (from homeassistant==2026.1.0.dev0) (2.7)
+Requirement already satisfied: fnv-hash-fast==1.6.0 in ./.venv/lib/python3.13/site-packages (from homeassistant==2026.1.0.dev0) (1.6.0)
+Requirement already satisfied: hass-nabucasa==1.7.0 in ./.venv/lib/python3.13/site-packages (from homeassistant==2026.1.0.dev0) (1.7.0)
+Requirement already satisfied: httpx==0.28.1 in ./.venv/lib/python3.13/site-packages (from homeassistant==2026.1.0.dev0) (0.28.1)
+Requirement already satisfied: home-assistant-bluetooth==1.13.1 in ./.venv/lib/python3.13/site-packages (from homeassistant==2026.1.0.dev0) (1.13.1)
+Requirement already satisfied: ifaddr==0.2.0 in ./.venv/lib/python3.13/site-packages (from homeassistant==2026.1.0.dev0) (0.2.0)
+Requirement already satisfied: Jinja2==3.1.6 in ./.venv/lib/python3.13/site-packages (from homeassistant==2026.1.0.dev0) (3.1.6)
+Requirement already satisfied: lru-dict==1.3.0 in ./.venv/lib/python3.13/site-packages (from homeassistant==2026.1.0.dev0) (1.3.0)
+Requirement already satisfied: PyJWT==2.10.1 in ./.venv/lib/python3.13/site-packages (from homeassistant==2026.1.0.dev0) (2.10.1)
+Requirement already satisfied: cryptography==46.0.2 in ./.venv/lib/python3.13/site-packages (from homeassistant==2026.1.0.dev0) (46.0.2)
+Requirement already satisfied: Pillow==12.0.0 in ./.venv/lib/python3.13/site-packages (from homeassistant==2026.1.0.dev0) (12.0.0)
+Requirement already satisfied: propcache==0.4.1 in ./.venv/lib/python3.13/site-packages (from homeassistant==2026.1.0.dev0) (0.4.1)
+Requirement already satisfied: pyOpenSSL==25.3.0 in ./.venv/lib/python3.13/site-packages (from homeassistant==2026.1.0.dev0) (25.3.0)
+Requirement already satisfied: orjson==3.11.3 in ./.venv/lib/python3.13/site-packages (from homeassistant==2026.1.0.dev0) (3.11.3)
+Requirement already satisfied: packaging>=23.1 in ./.venv/lib/python3.13/site-packages (from homeassistant==2026.1.0.dev0) (26.0)
+Requirement already satisfied: psutil-home-assistant==0.0.1 in ./.venv/lib/python3.13/site-packages (from homeassistant==2026.1.0.dev0) (0.0.1)
+Requirement already satisfied: python-slugify==8.0.4 in ./.venv/lib/python3.13/site-packages (from homeassistant==2026.1.0.dev0) (8.0.4)
+Requirement already satisfied: PyYAML==6.0.3 in ./.venv/lib/python3.13/site-packages (from homeassistant==2026.1.0.dev0) (6.0.3)
+Requirement already satisfied: requests==2.32.5 in ./.venv/lib/python3.13/site-packages (from homeassistant==2026.1.0.dev0) (2.32.5)
+Requirement already satisfied: securetar==2025.2.1 in ./.venv/lib/python3.13/site-packages (from homeassistant==2026.1.0.dev0) (2025.2.1)
+Requirement already satisfied: SQLAlchemy==2.0.44 in ./.venv/lib/python3.13/site-packages (from homeassistant==2026.1.0.dev0) (2.0.44)
+Requirement already satisfied: standard-aifc==3.13.0 in ./.venv/lib/python3.13/site-packages (from homeassistant==2026.1.0.dev0) (3.13.0)
+Requirement already satisfied: standard-telnetlib==3.13.0 in ./.venv/lib/python3.13/site-packages (from homeassistant==2026.1.0.dev0) (3.13.0)
+Requirement already satisfied: typing-extensions<5.0,>=4.15.0 in ./.venv/lib/python3.13/site-packages (from homeassistant==2026.1.0.dev0) (4.15.0)
+Requirement already satisfied: ulid-transform==1.5.2 in ./.venv/lib/python3.13/site-packages (from homeassistant==2026.1.0.dev0) (1.5.2)
+Requirement already satisfied: urllib3>=2.0 in ./.venv/lib/python3.13/site-packages (from homeassistant==2026.1.0.dev0) (2.6.3)
+Requirement already satisfied: uv==0.9.17 in ./.venv/lib/python3.13/site-packages (from homeassistant==2026.1.0.dev0) (0.9.17)
+Requirement already satisfied: voluptuous==0.15.2 in ./.venv/lib/python3.13/site-packages (from homeassistant==2026.1.0.dev0) (0.15.2)
+Requirement already satisfied: voluptuous-serialize==2.7.0 in ./.venv/lib/python3.13/site-packages (from homeassistant==2026.1.0.dev0) (2.7.0)
+Requirement already satisfied: voluptuous-openapi==0.1.0 in ./.venv/lib/python3.13/site-packages (from homeassistant==2026.1.0.dev0) (0.1.0)
+Requirement already satisfied: yarl==1.22.0 in ./.venv/lib/python3.13/site-packages (from homeassistant==2026.1.0.dev0) (1.22.0)
+Requirement already satisfied: webrtc-models==0.3.0 in ./.venv/lib/python3.13/site-packages (from homeassistant==2026.1.0.dev0) (0.3.0)
+Requirement already satisfied: zeroconf==0.148.0 in ./.venv/lib/python3.13/site-packages (from homeassistant==2026.1.0.dev0) (0.148.0)
+Requirement already satisfied: pycares<5,>=4.9.0 in ./.venv/lib/python3.13/site-packages (from aiodns==3.6.1->homeassistant==2026.1.0.dev0) (4.11.0)
+Requirement already satisfied: mashumaro<4.0,>=3.11 in ./.venv/lib/python3.13/site-packages (from aiohasupervisor==0.3.3->homeassistant==2026.1.0.dev0) (3.19)
+Requirement already satisfied: aiohappyeyeballs>=2.5.0 in ./.venv/lib/python3.13/site-packages (from aiohttp==3.13.3->homeassistant==2026.1.0.dev0) (2.6.1)
+Requirement already satisfied: aiosignal>=1.4.0 in ./.venv/lib/python3.13/site-packages (from aiohttp==3.13.3->homeassistant==2026.1.0.dev0) (1.4.0)
+Requirement already satisfied: frozenlist>=1.1.1 in ./.venv/lib/python3.13/site-packages (from aiohttp==3.13.3->homeassistant==2026.1.0.dev0) (1.8.0)
+Requirement already satisfied: multidict<7.0,>=4.5 in ./.venv/lib/python3.13/site-packages (from aiohttp==3.13.3->homeassistant==2026.1.0.dev0) (6.7.1)
+Requirement already satisfied: idna>=2.0 in ./.venv/lib/python3.13/site-packages (from yarl==1.22.0->homeassistant==2026.1.0.dev0) (3.11)
+Requirement already satisfied: tzdata>=2024.1 in ./.venv/lib/python3.13/site-packages (from aiozoneinfo==0.2.3->homeassistant==2026.1.0.dev0) (2025.3)
+Requirement already satisfied: pytz in ./.venv/lib/python3.13/site-packages (from astral==2.2->homeassistant==2026.1.0.dev0) (2025.2)
+Requirement already satisfied: cffi>=2.0.0 in ./.venv/lib/python3.13/site-packages (from cryptography==46.0.2->homeassistant==2026.1.0.dev0) (2.0.0)
+Requirement already satisfied: fnvhash<0.3,>=0.1 in ./.venv/lib/python3.13/site-packages (from fnv-hash-fast==1.6.0->homeassistant==2026.1.0.dev0) (0.2.1)
+Requirement already satisfied: acme==5.1.0 in ./.venv/lib/python3.13/site-packages (from hass-nabucasa==1.7.0->homeassistant==2026.1.0.dev0) (5.1.0)
+Requirement already satisfied: async_timeout>=4 in ./.venv/lib/python3.13/site-packages (from hass-nabucasa==1.7.0->homeassistant==2026.1.0.dev0) (4.0.3)
+Requirement already satisfied: grpcio<2,>=1.75.1 in ./.venv/lib/python3.13/site-packages (from hass-nabucasa==1.7.0->homeassistant==2026.1.0.dev0) (1.75.1)
+Requirement already satisfied: josepy<3,>=2 in ./.venv/lib/python3.13/site-packages (from hass-nabucasa==1.7.0->homeassistant==2026.1.0.dev0) (2.2.0)
+Requirement already satisfied: litellm<2,>=1.80.0 in ./.venv/lib/python3.13/site-packages (from hass-nabucasa==1.7.0->homeassistant==2026.1.0.dev0) (1.81.8)
+Requirement already satisfied: pycognito==2024.5.1 in ./.venv/lib/python3.13/site-packages (from hass-nabucasa==1.7.0->homeassistant==2026.1.0.dev0) (2024.5.1)
+Requirement already satisfied: snitun==0.45.1 in ./.venv/lib/python3.13/site-packages (from hass-nabucasa==1.7.0->homeassistant==2026.1.0.dev0) (0.45.1)
+Requirement already satisfied: sentence-stream<2,>=1.2.0 in ./.venv/lib/python3.13/site-packages (from hass-nabucasa==1.7.0->homeassistant==2026.1.0.dev0) (1.2.0)
+Requirement already satisfied: pyrfc3339 in ./.venv/lib/python3.13/site-packages (from acme==5.1.0->hass-nabucasa==1.7.0->homeassistant==2026.1.0.dev0) (2.1.0)
+Requirement already satisfied: habluetooth>=3.0 in ./.venv/lib/python3.13/site-packages (from home-assistant-bluetooth==1.13.1->homeassistant==2026.1.0.dev0) (5.8.0)
+Requirement already satisfied: anyio in ./.venv/lib/python3.13/site-packages (from httpx==0.28.1->homeassistant==2026.1.0.dev0) (4.10.0)
+Requirement already satisfied: httpcore==1.* in ./.venv/lib/python3.13/site-packages (from httpx==0.28.1->homeassistant==2026.1.0.dev0) (1.0.9)
+Requirement already satisfied: MarkupSafe>=2.0 in ./.venv/lib/python3.13/site-packages (from Jinja2==3.1.6->homeassistant==2026.1.0.dev0) (3.0.3)
+Requirement already satisfied: psutil in ./.venv/lib/python3.13/site-packages (from psutil-home-assistant==0.0.1->homeassistant==2026.1.0.dev0) (7.1.2)
+Requirement already satisfied: boto3>=1.10.49 in ./.venv/lib/python3.13/site-packages (from pycognito==2024.5.1->hass-nabucasa==1.7.0->homeassistant==2026.1.0.dev0) (1.37.1)
+Requirement already satisfied: envs>=1.3 in ./.venv/lib/python3.13/site-packages (from pycognito==2024.5.1->hass-nabucasa==1.7.0->homeassistant==2026.1.0.dev0) (1.4)
+Requirement already satisfied: text-unidecode>=1.3 in ./.venv/lib/python3.13/site-packages (from python-slugify==8.0.4->homeassistant==2026.1.0.dev0) (1.3)
+Requirement already satisfied: charset_normalizer<4,>=2 in ./.venv/lib/python3.13/site-packages (from requests==2.32.5->homeassistant==2026.1.0.dev0) (3.4.3)
+Requirement already satisfied: greenlet>=1 in ./.venv/lib/python3.13/site-packages (from SQLAlchemy==2.0.44->homeassistant==2026.1.0.dev0) (3.3.1)
+Requirement already satisfied: standard-chunk in ./.venv/lib/python3.13/site-packages (from standard-aifc==3.13.0->homeassistant==2026.1.0.dev0) (3.13.0)
+Requirement already satisfied: h11>=0.16 in ./.venv/lib/python3.13/site-packages (from httpcore==1.*->httpx==0.28.1->homeassistant==2026.1.0.dev0) (0.16.0)
+Requirement already satisfied: click in ./.venv/lib/python3.13/site-packages (from litellm<2,>=1.80.0->hass-nabucasa==1.7.0->homeassistant==2026.1.0.dev0) (8.1.8)
+Requirement already satisfied: fastuuid>=0.13.0 in ./.venv/lib/python3.13/site-packages (from litellm<2,>=1.80.0->hass-nabucasa==1.7.0->homeassistant==2026.1.0.dev0) (0.14.0)
+Requirement already satisfied: importlib-metadata>=6.8.0 in ./.venv/lib/python3.13/site-packages (from litellm<2,>=1.80.0->hass-nabucasa==1.7.0->homeassistant==2026.1.0.dev0) (8.7.1)
+Requirement already satisfied: jsonschema<5.0.0,>=4.23.0 in ./.venv/lib/python3.13/site-packages (from litellm<2,>=1.80.0->hass-nabucasa==1.7.0->homeassistant==2026.1.0.dev0) (4.26.0)
+Requirement already satisfied: openai>=2.8.0 in ./.venv/lib/python3.13/site-packages (from litellm<2,>=1.80.0->hass-nabucasa==1.7.0->homeassistant==2026.1.0.dev0) (2.11.0)
+Requirement already satisfied: pydantic<3.0.0,>=2.5.0 in ./.venv/lib/python3.13/site-packages (from litellm<2,>=1.80.0->hass-nabucasa==1.7.0->homeassistant==2026.1.0.dev0) (2.12.2)
+Requirement already satisfied: python-dotenv>=0.2.0 in ./.venv/lib/python3.13/site-packages (from litellm<2,>=1.80.0->hass-nabucasa==1.7.0->homeassistant==2026.1.0.dev0) (1.2.1)
+Requirement already satisfied: tiktoken>=0.7.0 in ./.venv/lib/python3.13/site-packages (from litellm<2,>=1.80.0->hass-nabucasa==1.7.0->homeassistant==2026.1.0.dev0) (0.12.0)
+Requirement already satisfied: tokenizers in ./.venv/lib/python3.13/site-packages (from litellm<2,>=1.80.0->hass-nabucasa==1.7.0->homeassistant==2026.1.0.dev0) (0.22.2)
+Requirement already satisfied: jsonschema-specifications>=2023.03.6 in ./.venv/lib/python3.13/site-packages (from jsonschema<5.0.0,>=4.23.0->litellm<2,>=1.80.0->hass-nabucasa==1.7.0->homeassistant==2026.1.0.dev0) (2025.9.1)
+Requirement already satisfied: referencing>=0.28.4 in ./.venv/lib/python3.13/site-packages (from jsonschema<5.0.0,>=4.23.0->litellm<2,>=1.80.0->hass-nabucasa==1.7.0->homeassistant==2026.1.0.dev0) (0.37.0)
+Requirement already satisfied: rpds-py>=0.25.0 in ./.venv/lib/python3.13/site-packages (from jsonschema<5.0.0,>=4.23.0->litellm<2,>=1.80.0->hass-nabucasa==1.7.0->homeassistant==2026.1.0.dev0) (0.30.0)
+Requirement already satisfied: annotated-types>=0.6.0 in ./.venv/lib/python3.13/site-packages (from pydantic<3.0.0,>=2.5.0->litellm<2,>=1.80.0->hass-nabucasa==1.7.0->homeassistant==2026.1.0.dev0) (0.7.0)
+Requirement already satisfied: pydantic-core==2.41.4 in ./.venv/lib/python3.13/site-packages (from pydantic<3.0.0,>=2.5.0->litellm<2,>=1.80.0->hass-nabucasa==1.7.0->homeassistant==2026.1.0.dev0) (2.41.4)
+Requirement already satisfied: typing-inspection>=0.4.2 in ./.venv/lib/python3.13/site-packages (from pydantic<3.0.0,>=2.5.0->litellm<2,>=1.80.0->hass-nabucasa==1.7.0->homeassistant==2026.1.0.dev0) (0.4.2)
+Requirement already satisfied: regex==2024.11.6 in ./.venv/lib/python3.13/site-packages (from sentence-stream<2,>=1.2.0->hass-nabucasa==1.7.0->homeassistant==2026.1.0.dev0) (2024.11.6)
+Requirement already satisfied: botocore<1.38.0,>=1.37.1 in ./.venv/lib/python3.13/site-packages (from boto3>=1.10.49->pycognito==2024.5.1->hass-nabucasa==1.7.0->homeassistant==2026.1.0.dev0) (1.37.1)
+Requirement already satisfied: jmespath<2.0.0,>=0.7.1 in ./.venv/lib/python3.13/site-packages (from boto3>=1.10.49->pycognito==2024.5.1->hass-nabucasa==1.7.0->homeassistant==2026.1.0.dev0) (1.1.0)
+Requirement already satisfied: s3transfer<0.12.0,>=0.11.0 in ./.venv/lib/python3.13/site-packages (from boto3>=1.10.49->pycognito==2024.5.1->hass-nabucasa==1.7.0->homeassistant==2026.1.0.dev0) (0.11.3)
+Requirement already satisfied: python-dateutil<3.0.0,>=2.1 in ./.venv/lib/python3.13/site-packages (from botocore<1.38.0,>=1.37.1->boto3>=1.10.49->pycognito==2024.5.1->hass-nabucasa==1.7.0->homeassistant==2026.1.0.dev0) (2.9.0.post0)
+Requirement already satisfied: six>=1.5 in ./.venv/lib/python3.13/site-packages (from python-dateutil<3.0.0,>=2.1->botocore<1.38.0,>=1.37.1->boto3>=1.10.49->pycognito==2024.5.1->hass-nabucasa==1.7.0->homeassistant==2026.1.0.dev0) (1.17.0)
+Requirement already satisfied: pycparser in ./.venv/lib/python3.13/site-packages (from cffi>=2.0.0->cryptography==46.0.2->homeassistant==2026.1.0.dev0) (3.0)
+Requirement already satisfied: bleak>=1.0.1 in ./.venv/lib/python3.13/site-packages (from habluetooth>=3.0->home-assistant-bluetooth==1.13.1->homeassistant==2026.1.0.dev0) (2.0.0)
+Requirement already satisfied: bleak-retry-connector>=4.2.0 in ./.venv/lib/python3.13/site-packages (from habluetooth>=3.0->home-assistant-bluetooth==1.13.1->homeassistant==2026.1.0.dev0) (4.4.3)
+Requirement already satisfied: bluetooth-adapters>=2.1.0 in ./.venv/lib/python3.13/site-packages (from habluetooth>=3.0->home-assistant-bluetooth==1.13.1->homeassistant==2026.1.0.dev0) (2.1.0)
+Requirement already satisfied: bluetooth-auto-recovery>=1.5.1 in ./.venv/lib/python3.13/site-packages (from habluetooth>=3.0->home-assistant-bluetooth==1.13.1->homeassistant==2026.1.0.dev0) (1.5.3)
+Requirement already satisfied: bluetooth-data-tools>=1.28.0 in ./.venv/lib/python3.13/site-packages (from habluetooth>=3.0->home-assistant-bluetooth==1.13.1->homeassistant==2026.1.0.dev0) (1.28.4)
+Requirement already satisfied: btsocket>=0.3.0 in ./.venv/lib/python3.13/site-packages (from habluetooth>=3.0->home-assistant-bluetooth==1.13.1->homeassistant==2026.1.0.dev0) (0.3.0)
+Requirement already satisfied: dbus-fast>=2.30.2 in ./.venv/lib/python3.13/site-packages (from habluetooth>=3.0->home-assistant-bluetooth==1.13.1->homeassistant==2026.1.0.dev0) (3.1.2)
+Requirement already satisfied: aiooui>=0.1.1 in ./.venv/lib/python3.13/site-packages (from bluetooth-adapters>=2.1.0->habluetooth>=3.0->home-assistant-bluetooth==1.13.1->homeassistant==2026.1.0.dev0) (0.1.9)
+Requirement already satisfied: uart-devices>=0.1.0 in ./.venv/lib/python3.13/site-packages (from bluetooth-adapters>=2.1.0->habluetooth>=3.0->home-assistant-bluetooth==1.13.1->homeassistant==2026.1.0.dev0) (0.1.1)
+Requirement already satisfied: usb-devices>=0.4.5 in ./.venv/lib/python3.13/site-packages (from bluetooth-adapters>=2.1.0->habluetooth>=3.0->home-assistant-bluetooth==1.13.1->homeassistant==2026.1.0.dev0) (0.4.5)
+Requirement already satisfied: PyRIC>=0.1.6.3 in ./.venv/lib/python3.13/site-packages (from bluetooth-auto-recovery>=1.5.1->habluetooth>=3.0->home-assistant-bluetooth==1.13.1->homeassistant==2026.1.0.dev0) (0.1.6.3)
+Requirement already satisfied: zipp>=3.20 in ./.venv/lib/python3.13/site-packages (from importlib-metadata>=6.8.0->litellm<2,>=1.80.0->hass-nabucasa==1.7.0->homeassistant==2026.1.0.dev0) (3.23.0)
+Requirement already satisfied: distro<2,>=1.7.0 in ./.venv/lib/python3.13/site-packages (from openai>=2.8.0->litellm<2,>=1.80.0->hass-nabucasa==1.7.0->homeassistant==2026.1.0.dev0) (1.9.0)
+Requirement already satisfied: jiter<1,>=0.10.0 in ./.venv/lib/python3.13/site-packages (from openai>=2.8.0->litellm<2,>=1.80.0->hass-nabucasa==1.7.0->homeassistant==2026.1.0.dev0) (0.13.0)
+Requirement already satisfied: sniffio in ./.venv/lib/python3.13/site-packages (from openai>=2.8.0->litellm<2,>=1.80.0->hass-nabucasa==1.7.0->homeassistant==2026.1.0.dev0) (1.3.1)
+Requirement already satisfied: tqdm>4 in ./.venv/lib/python3.13/site-packages (from openai>=2.8.0->litellm<2,>=1.80.0->hass-nabucasa==1.7.0->homeassistant==2026.1.0.dev0) (4.67.1)
+Requirement already satisfied: huggingface-hub<2.0,>=0.16.4 in ./.venv/lib/python3.13/site-packages (from tokenizers->litellm<2,>=1.80.0->hass-nabucasa==1.7.0->homeassistant==2026.1.0.dev0) (1.4.0)
+Requirement already satisfied: filelock in ./.venv/lib/python3.13/site-packages (from huggingface-hub<2.0,>=0.16.4->tokenizers->litellm<2,>=1.80.0->hass-nabucasa==1.7.0->homeassistant==2026.1.0.dev0) (3.20.3)
+Requirement already satisfied: fsspec>=2023.5.0 in ./.venv/lib/python3.13/site-packages (from huggingface-hub<2.0,>=0.16.4->tokenizers->litellm<2,>=1.80.0->hass-nabucasa==1.7.0->homeassistant==2026.1.0.dev0) (2026.2.0)
+Requirement already satisfied: hf-xet<2.0.0,>=1.2.0 in ./.venv/lib/python3.13/site-packages (from huggingface-hub<2.0,>=0.16.4->tokenizers->litellm<2,>=1.80.0->hass-nabucasa==1.7.0->homeassistant==2026.1.0.dev0) (1.2.0)
+Requirement already satisfied: shellingham in ./.venv/lib/python3.13/site-packages (from huggingface-hub<2.0,>=0.16.4->tokenizers->litellm<2,>=1.80.0->hass-nabucasa==1.7.0->homeassistant==2026.1.0.dev0) (1.5.4)
+Requirement already satisfied: typer-slim in ./.venv/lib/python3.13/site-packages (from huggingface-hub<2.0,>=0.16.4->tokenizers->litellm<2,>=1.80.0->hass-nabucasa==1.7.0->homeassistant==2026.1.0.dev0) (0.21.1)
+Building wheels for collected packages: homeassistant
+  Building editable for homeassistant (pyproject.toml): started
+  Building editable for homeassistant (pyproject.toml): finished with status 'done'
+  Created wheel for homeassistant: filename=homeassistant-2026.1.0.dev0-0.editable-py3-none-any.whl size=24100 sha256=262695a4217bc8e861428554ab1ed626388c6eb8a7edc73571ead386cb4f83a2
+  Stored in directory: /tmp/pip-ephem-wheel-cache-glsdztja/wheels/6b/dd/64/6b657624e336db63c7bc1ea2a938db66f200fddc4795195067
+Successfully built homeassistant
+Installing collected packages: homeassistant
+  Attempting uninstall: homeassistant
+    Found existing installation: homeassistant 2026.1.0.dev0
+    Uninstalling homeassistant-2026.1.0.dev0:
+      Successfully uninstalled homeassistant-2026.1.0.dev0
+Successfully installed homeassistant-2026.1.0.dev0
