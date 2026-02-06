@@ -6,14 +6,10 @@ derived from EntityDescription and sub classes thereof.
 
 from __future__ import annotations
 
+from annotationlib import Format, get_annotations
 import dataclasses
 import sys
 from typing import TYPE_CHECKING, Any, cast, dataclass_transform
-
-if sys.version_info >= (3, 14):
-    from annotationlib import Format, get_annotations
-else:
-    from typing_extensions import Format, get_annotations
 
 if TYPE_CHECKING:
     from _typeshed import DataclassInstance
