@@ -6,14 +6,14 @@ from unittest.mock import AsyncMock, MagicMock, patch
 
 import pytest
 
-if sys.version_info < (3, 14):
+if sys.version_info < (3, 14):  # noqa: UP036
     from pyatv import conf
     from pyatv.const import PairingRequirement, Protocol
     from pyatv.support import http
 
     from .common import MockPairingHandler, airplay_service, create_conf, mrp_service
 
-if sys.version_info >= (3, 14):
+if sys.version_info >= (3, 14):  # noqa: UP036
     collect_ignore_glob = ["test_*.py"]
 
 
