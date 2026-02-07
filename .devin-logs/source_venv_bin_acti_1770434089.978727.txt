@@ -1,0 +1,650 @@
+warning: Support for Python 3.14 is in preview and may undergo breaking changes. Enable `preview` to remove this warning.
+I001 [*] Import block is un-sorted or un-formatted
+  --> homeassistant/components/apple_tv/__init__.py:3:1
+   |
+ 1 |   """The Apple TV integration."""
+ 2 |
+ 3 | / from __future__ import annotations
+ 4 | |
+ 5 | | import asyncio
+ 6 | | import logging
+ 7 | | from random import randrange
+ 8 | | import sys
+ 9 | | from typing import Any, cast
+10 | |
+11 | | from homeassistant.components import zeroconf
+12 | | from homeassistant.config_entries import ConfigEntry
+13 | | from homeassistant.const import (
+14 | |     ATTR_CONNECTIONS,
+15 | |     ATTR_IDENTIFIERS,
+16 | |     ATTR_MANUFACTURER,
+17 | |     ATTR_MODEL,
+18 | |     ATTR_NAME,
+19 | |     ATTR_SUGGESTED_AREA,
+20 | |     ATTR_SW_VERSION,
+21 | |     CONF_ADDRESS,
+22 | |     CONF_NAME,
+23 | |     EVENT_HOMEASSISTANT_STOP,
+24 | |     Platform,
+25 | | )
+26 | | from homeassistant.core import Event, HomeAssistant, callback
+27 | | from homeassistant.exceptions import (
+28 | |     ConfigEntryAuthFailed,
+29 | |     ConfigEntryNotReady,
+30 | |     HomeAssistantError,
+31 | | )
+32 | | from homeassistant.helpers import device_registry as dr
+33 | | from homeassistant.helpers.aiohttp_client import async_get_clientsession
+34 | | from homeassistant.helpers.dispatcher import async_dispatcher_send
+35 | |
+36 | | from .const import (
+37 | |     CONF_CREDENTIALS,
+38 | |     CONF_IDENTIFIERS,
+39 | |     CONF_START_OFF,
+40 | |     DOMAIN,
+41 | |     SIGNAL_CONNECTED,
+42 | |     SIGNAL_DISCONNECTED,
+43 | | )
+   | |_^
+44 |
+45 |   class DeviceListener:
+   |
+help: Organize imports
+
+F401 `sys` imported but unused
+ --> homeassistant/components/apple_tv/__init__.py:8:8
+  |
+6 | import logging
+7 | from random import randrange
+8 | import sys
+  |        ^^^
+9 | from typing import Any, cast
+  |
+help: Remove unused import: `sys`
+
+F821 Undefined name `manager`
+  --> homeassistant/components/apple_tv/__init__.py:73:8
+   |
+71 |     )
+72 |
+73 |     if manager.is_on:
+   |        ^^^^^^^
+74 |         address = entry.data[CONF_ADDRESS]
+   |
+
+F821 Undefined name `manager`
+  --> homeassistant/components/apple_tv/__init__.py:77:19
+   |
+76 |         try:
+77 |             await manager.async_first_connect()
+   |                   ^^^^^^^
+78 |         except AUTH_EXCEPTIONS as ex:
+79 |             raise ConfigEntryAuthFailed(
+   |
+
+F821 Undefined name `manager`
+  --> homeassistant/components/apple_tv/__init__.py:90:26
+   |
+88 |             raise ConfigEntryNotReady(f"{address}: {ex}") from ex
+89 |
+90 |     entry.runtime_data = manager
+   |                          ^^^^^^^
+91 |
+92 |     async def on_hass_stop(event: Event) -> None:
+   |
+
+F821 Undefined name `manager`
+  --> homeassistant/components/apple_tv/__init__.py:94:15
+   |
+92 |     async def on_hass_stop(event: Event) -> None:
+93 |         """Stop push updates when hass stops."""
+94 |         await manager.disconnect()
+   |               ^^^^^^^
+95 |
+96 |     entry.async_on_unload(
+   |
+
+F821 Undefined name `manager`
+   --> homeassistant/components/apple_tv/__init__.py:99:27
+    |
+ 97 |         hass.bus.async_listen_once(EVENT_HOMEASSISTANT_STOP, on_hass_stop)
+ 98 |     )
+ 99 |     entry.async_on_unload(manager.disconnect)
+    |                           ^^^^^^^
+100 |
+101 |     await hass.config_entries.async_forward_entry_setups(entry, PLATFORMS)
+    |
+
+F821 Undefined name `manager`
+   --> homeassistant/components/apple_tv/__init__.py:102:11
+    |
+101 |     await hass.config_entries.async_forward_entry_setups(entry, PLATFORMS)
+102 |     await manager.init()
+    |           ^^^^^^^
+103 |
+104 |     return True
+    |
+
+F821 Undefined name `AppleTVInterface`
+   --> homeassistant/components/apple_tv/__init__.py:120:10
+    |
+118 |     """
+119 |
+120 |     atv: AppleTVInterface | None = None
+    |          ^^^^^^^^^^^^^^^^
+121 |     _connection_attempts = 0
+122 |     _connection_was_lost = False
+    |
+
+F821 Undefined name `exceptions`
+   --> homeassistant/components/apple_tv/__init__.py:214:16
+    |
+212 |         try:
+213 |             await self._connect_once(raise_missing_credentials)
+214 |         except exceptions.AuthenticationError:
+    |                ^^^^^^^^^^
+215 |             self.config_entry.async_start_reauth(self.hass)
+216 |             await self.disconnect()
+    |
+
+F821 Undefined name `AppleTV`
+   --> homeassistant/components/apple_tv/__init__.py:253:30
+    |
+251 |         self._task = None
+252 |
+253 |     async def _scan(self) -> AppleTV | None:
+    |                              ^^^^^^^
+254 |         """Try to find device by scanning for it."""
+255 |         config_entry = self.config_entry
+    |
+
+F821 Undefined name `Protocol`
+   --> homeassistant/components/apple_tv/__init__.py:264:13
+    |
+262 |         # Only scan for and set up protocols that was successfully paired
+263 |         protocols = {
+264 |             Protocol(int(protocol)) for protocol in config_entry.data[CONF_CREDENTIALS]
+    |             ^^^^^^^^
+265 |         }
+    |
+
+F821 Undefined name `scan`
+   --> homeassistant/components/apple_tv/__init__.py:269:22
+    |
+267 |         _LOGGER.debug("Discovering device %s", config_entry.title)
+268 |         aiozc = await zeroconf.async_get_async_instance(hass)
+269 |         atvs = await scan(
+    |                      ^^^^
+270 |             hass.loop,
+271 |             identifier=identifiers,
+    |
+
+F821 Undefined name `AppleTV`
+   --> homeassistant/components/apple_tv/__init__.py:277:25
+    |
+275 |         )
+276 |         if atvs:
+277 |             return cast(AppleTV, atvs[0])
+    |                         ^^^^^^^
+278 |
+279 |         _LOGGER.debug(
+    |
+
+F821 Undefined name `AppleTV`
+   --> homeassistant/components/apple_tv/__init__.py:288:36
+    |
+286 |         return None
+287 |
+288 |     async def _connect(self, conf: AppleTV, raise_missing_credentials: bool) -> None:
+    |                                    ^^^^^^^
+289 |         """Connect to device."""
+290 |         config_entry = self.config_entry
+    |
+
+F821 Undefined name `Protocol`
+   --> homeassistant/components/apple_tv/__init__.py:295:24
+    |
+293 |         missing_protocols = []
+294 |         for protocol_int, creds in credentials.items():
+295 |             protocol = Protocol(int(protocol_int))
+    |                        ^^^^^^^^
+296 |             if conf.get_service(protocol) is not None:
+297 |                 conf.set_credentials(protocol, creds)  # type: ignore[arg-type]
+    |
+
+F821 Undefined name `connect`
+   --> homeassistant/components/apple_tv/__init__.py:317:26
+    |
+315 |         _LOGGER.debug("Connecting to device %s", self.config_entry.data[CONF_NAME])
+316 |         session = async_get_clientsession(self.hass)
+317 |         self.atv = await connect(conf, self.hass.loop, session=session)
+    |                          ^^^^^^^
+318 |         self.atv.listener = self
+    |
+
+F821 Undefined name `DeviceModel`
+   --> homeassistant/components/apple_tv/__init__.py:351:38
+    |
+349 |             attrs[ATTR_MODEL] = (
+350 |                 dev_info.raw_model
+351 |                 if dev_info.model == DeviceModel.Unknown and dev_info.raw_model
+    |                                      ^^^^^^^^^^^
+352 |                 else model_str(dev_info.model)
+353 |             )
+    |
+
+F821 Undefined name `model_str`
+   --> homeassistant/components/apple_tv/__init__.py:352:22
+    |
+350 |                 dev_info.raw_model
+351 |                 if dev_info.model == DeviceModel.Unknown and dev_info.raw_model
+352 |                 else model_str(dev_info.model)
+    |                      ^^^^^^^^^
+353 |             )
+354 |             attrs[ATTR_SW_VERSION] = dev_info.version
+    |
+
+F821 Undefined name `hpy`
+   --> homeassistant/components/profiler/__init__.py:470:21
+    |
+468 |         notification_id=f"memory_profiler_{start_time}",
+469 |     )
+470 |     heap_profiler = hpy()
+    |                     ^^^
+471 |     heap_profiler.setref()
+472 |     await asyncio.sleep(float(call.data[CONF_SECONDS]))
+    |
+
+F401 [*] `sys` imported but unused
+ --> homeassistant/components/recorder/executor.py:7:8
+  |
+5 | from collections.abc import Callable
+6 | from concurrent.futures.thread import _threads_queues, _worker
+7 | import sys
+  |        ^^^
+8 | import threading
+9 | from typing import Any
+  |
+help: Remove unused import: `sys`
+
+I001 [*] Import block is un-sorted or un-formatted
+  --> homeassistant/util/frozen_dataclass_compat.py:7:1
+   |
+ 5 |   """
+ 6 |
+ 7 | / from __future__ import annotations
+ 8 | |
+ 9 | | import dataclasses
+10 | | import sys
+11 | | from typing import TYPE_CHECKING, Any, cast, dataclass_transform
+12 | |
+13 | | from annotationlib import Format, get_annotations
+   | |_________________________________________________^
+14 |
+15 |   if TYPE_CHECKING:
+   |
+help: Organize imports
+
+F401 [*] `sys` imported but unused
+ --> tests/components/apple_tv/conftest.py:4:8
+  |
+3 | from collections.abc import Generator
+4 | import sys
+  |        ^^^
+5 | from unittest.mock import AsyncMock, MagicMock, patch
+  |
+help: Remove unused import: `sys`
+
+F821 Undefined name `MockPairingHandler`
+  --> tests/components/apple_tv/conftest.py:44:23
+   |
+43 |         async def _pair(config, protocol, loop, session=None, **kwargs):
+44 |             handler = MockPairingHandler(
+   |                       ^^^^^^^^^^^^^^^^^^
+45 |                 await http.create_session(session), config.get_service(protocol)
+46 |             )
+   |
+
+F821 Undefined name `http`
+  --> tests/components/apple_tv/conftest.py:45:23
+   |
+43 |         async def _pair(config, protocol, loop, session=None, **kwargs):
+44 |             handler = MockPairingHandler(
+45 |                 await http.create_session(session), config.get_service(protocol)
+   |                       ^^^^
+46 |             )
+47 |             handler.always_fail = mock_pair.always_fail
+   |
+
+F821 Undefined name `create_conf`
+  --> tests/components/apple_tv/conftest.py:80:9
+   |
+78 |     """Mock pyatv.scan."""
+79 |     mock_scan.result.append(
+80 |         create_conf(
+   |         ^^^^^^^^^^^
+81 |             "127.0.0.1",
+82 |             "MRP Device",
+   |
+
+F821 Undefined name `mrp_service`
+  --> tests/components/apple_tv/conftest.py:83:13
+   |
+81 |             "127.0.0.1",
+82 |             "MRP Device",
+83 |             mrp_service(),
+   |             ^^^^^^^^^^^
+84 |             conf.ManualService(
+85 |                 "dmapid",
+   |
+
+F821 Undefined name `conf`
+  --> tests/components/apple_tv/conftest.py:84:13
+   |
+82 |             "MRP Device",
+83 |             mrp_service(),
+84 |             conf.ManualService(
+   |             ^^^^
+85 |                 "dmapid",
+86 |                 Protocol.DMAP,
+   |
+
+F821 Undefined name `Protocol`
+  --> tests/components/apple_tv/conftest.py:86:17
+   |
+84 |             conf.ManualService(
+85 |                 "dmapid",
+86 |                 Protocol.DMAP,
+   |                 ^^^^^^^^
+87 |                 6666,
+88 |                 {},
+   |
+
+F821 Undefined name `PairingRequirement`
+  --> tests/components/apple_tv/conftest.py:89:37
+   |
+87 |                 6666,
+88 |                 {},
+89 |                 pairing_requirement=PairingRequirement.Mandatory,
+   |                                     ^^^^^^^^^^^^^^^^^^
+90 |             ),
+91 |             airplay_service(),
+   |
+
+F821 Undefined name `airplay_service`
+  --> tests/components/apple_tv/conftest.py:91:13
+   |
+89 |                 pairing_requirement=PairingRequirement.Mandatory,
+90 |             ),
+91 |             airplay_service(),
+   |             ^^^^^^^^^^^^^^^
+92 |         )
+93 |     )
+   |
+
+F821 Undefined name `create_conf`
+   --> tests/components/apple_tv/conftest.py:102:13
+    |
+100 |     mock_scan.result.extend(
+101 |         [
+102 |             create_conf(
+    |             ^^^^^^^^^^^
+103 |                 "127.0.0.1",
+104 |                 "MRP Device",
+    |
+
+F821 Undefined name `mrp_service`
+   --> tests/components/apple_tv/conftest.py:105:17
+    |
+103 |                 "127.0.0.1",
+104 |                 "MRP Device",
+105 |                 mrp_service(),
+    |                 ^^^^^^^^^^^
+106 |             ),
+107 |             create_conf(
+    |
+
+F821 Undefined name `create_conf`
+   --> tests/components/apple_tv/conftest.py:107:13
+    |
+105 |                 mrp_service(),
+106 |             ),
+107 |             create_conf(
+    |             ^^^^^^^^^^^
+108 |                 "127.0.0.2",
+109 |                 "MRP Device 2",
+    |
+
+F821 Undefined name `mrp_service`
+   --> tests/components/apple_tv/conftest.py:110:17
+    |
+108 |                 "127.0.0.2",
+109 |                 "MRP Device 2",
+110 |                 mrp_service(unique_id="unrelated"),
+    |                 ^^^^^^^^^^^
+111 |             ),
+112 |         ]
+    |
+
+F821 Undefined name `create_conf`
+   --> tests/components/apple_tv/conftest.py:121:9
+    |
+119 |     """Mock pyatv.scan."""
+120 |     mock_scan.result.append(
+121 |         create_conf(
+    |         ^^^^^^^^^^^
+122 |             "127.0.0.1",
+123 |             "AirPlay Device",
+    |
+
+F821 Undefined name `mrp_service`
+   --> tests/components/apple_tv/conftest.py:124:13
+    |
+122 |             "127.0.0.1",
+123 |             "AirPlay Device",
+124 |             mrp_service(enabled=False),
+    |             ^^^^^^^^^^^
+125 |             conf.ManualService(
+126 |                 "airplayid",
+    |
+
+F821 Undefined name `conf`
+   --> tests/components/apple_tv/conftest.py:125:13
+    |
+123 |             "AirPlay Device",
+124 |             mrp_service(enabled=False),
+125 |             conf.ManualService(
+    |             ^^^^
+126 |                 "airplayid",
+127 |                 Protocol.AirPlay,
+    |
+
+F821 Undefined name `Protocol`
+   --> tests/components/apple_tv/conftest.py:127:17
+    |
+125 |             conf.ManualService(
+126 |                 "airplayid",
+127 |                 Protocol.AirPlay,
+    |                 ^^^^^^^^
+128 |                 7777,
+129 |                 {},
+    |
+
+F821 Undefined name `PairingRequirement`
+   --> tests/components/apple_tv/conftest.py:130:37
+    |
+128 |                 7777,
+129 |                 {},
+130 |                 pairing_requirement=PairingRequirement.Mandatory,
+    |                                     ^^^^^^^^^^^^^^^^^^
+131 |             ),
+132 |         )
+    |
+
+F821 Undefined name `create_conf`
+   --> tests/components/apple_tv/conftest.py:141:9
+    |
+139 |     """Mock pyatv.scan."""
+140 |     mock_scan.result.append(
+141 |         create_conf(
+    |         ^^^^^^^^^^^
+142 |             "127.0.0.1",
+143 |             "DMAP Device",
+    |
+
+F821 Undefined name `conf`
+   --> tests/components/apple_tv/conftest.py:144:13
+    |
+142 |             "127.0.0.1",
+143 |             "DMAP Device",
+144 |             conf.ManualService(
+    |             ^^^^
+145 |                 "dmapid",
+146 |                 Protocol.DMAP,
+    |
+
+F821 Undefined name `Protocol`
+   --> tests/components/apple_tv/conftest.py:146:17
+    |
+144 |             conf.ManualService(
+145 |                 "dmapid",
+146 |                 Protocol.DMAP,
+    |                 ^^^^^^^^
+147 |                 6666,
+148 |                 {},
+    |
+
+F821 Undefined name `PairingRequirement`
+   --> tests/components/apple_tv/conftest.py:150:37
+    |
+148 |                 {},
+149 |                 credentials=None,
+150 |                 pairing_requirement=PairingRequirement.Mandatory,
+    |                                     ^^^^^^^^^^^^^^^^^^
+151 |             ),
+152 |         )
+    |
+
+F821 Undefined name `create_conf`
+   --> tests/components/apple_tv/conftest.py:161:9
+    |
+159 |     """Mock pyatv.scan."""
+160 |     mock_scan.result.append(
+161 |         create_conf(
+    |         ^^^^^^^^^^^
+162 |             "127.0.0.1",
+163 |             "DMAP Device",
+    |
+
+F821 Undefined name `conf`
+   --> tests/components/apple_tv/conftest.py:164:13
+    |
+162 |             "127.0.0.1",
+163 |             "DMAP Device",
+164 |             conf.ManualService(
+    |             ^^^^
+165 |                 "dmapid",
+166 |                 Protocol.DMAP,
+    |
+
+F821 Undefined name `Protocol`
+   --> tests/components/apple_tv/conftest.py:166:17
+    |
+164 |             conf.ManualService(
+165 |                 "dmapid",
+166 |                 Protocol.DMAP,
+    |                 ^^^^^^^^
+167 |                 6666,
+168 |                 {},
+    |
+
+F821 Undefined name `PairingRequirement`
+   --> tests/components/apple_tv/conftest.py:170:37
+    |
+168 |                 {},
+169 |                 credentials="dummy_creds",
+170 |                 pairing_requirement=PairingRequirement.NotNeeded,
+    |                                     ^^^^^^^^^^^^^^^^^^
+171 |             ),
+172 |         )
+    |
+
+F821 Undefined name `create_conf`
+   --> tests/components/apple_tv/conftest.py:181:9
+    |
+179 |     """Mock pyatv.scan."""
+180 |     mock_scan.result.append(
+181 |         create_conf(
+    |         ^^^^^^^^^^^
+182 |             "127.0.0.1",
+183 |             "AirPlay Device",
+    |
+
+F821 Undefined name `conf`
+   --> tests/components/apple_tv/conftest.py:184:13
+    |
+182 |             "127.0.0.1",
+183 |             "AirPlay Device",
+184 |             conf.ManualService(
+    |             ^^^^
+185 |                 "airplayid", Protocol.AirPlay, 7777, {}, requires_password=True
+186 |             ),
+    |
+
+F821 Undefined name `Protocol`
+   --> tests/components/apple_tv/conftest.py:185:30
+    |
+183 |             "AirPlay Device",
+184 |             conf.ManualService(
+185 |                 "airplayid", Protocol.AirPlay, 7777, {}, requires_password=True
+    |                              ^^^^^^^^
+186 |             ),
+187 |         )
+    |
+
+F821 Undefined name `PairingRequirement`
+   --> tests/components/apple_tv/conftest.py:194:48
+    |
+192 | @pytest.fixture
+193 | def dmap_with_requirement(
+194 |     mock_scan: AsyncMock, pairing_requirement: PairingRequirement
+    |                                                ^^^^^^^^^^^^^^^^^^
+195 | ) -> AsyncMock:
+196 |     """Mock pyatv.scan."""
+    |
+
+F821 Undefined name `create_conf`
+   --> tests/components/apple_tv/conftest.py:198:9
+    |
+196 |     """Mock pyatv.scan."""
+197 |     mock_scan.result.append(
+198 |         create_conf(
+    |         ^^^^^^^^^^^
+199 |             "127.0.0.1",
+200 |             "DMAP Device",
+    |
+
+F821 Undefined name `conf`
+   --> tests/components/apple_tv/conftest.py:201:13
+    |
+199 |             "127.0.0.1",
+200 |             "DMAP Device",
+201 |             conf.ManualService(
+    |             ^^^^
+202 |                 "dmapid",
+203 |                 Protocol.DMAP,
+    |
+
+F821 Undefined name `Protocol`
+   --> tests/components/apple_tv/conftest.py:203:17
+    |
+201 |             conf.ManualService(
+202 |                 "dmapid",
+203 |                 Protocol.DMAP,
+    |                 ^^^^^^^^
+204 |                 6666,
+205 |                 {},
+    |
+
+Found 55 errors.
+[*] 4 fixable with the `--fix` option.

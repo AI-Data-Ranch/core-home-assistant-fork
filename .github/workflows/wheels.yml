@@ -17,7 +17,7 @@ on:
       - "script/gen_requirements_all.py"
 
 env:
-  DEFAULT_PYTHON: "3.13"
+  DEFAULT_PYTHON: "3.14"
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref_name}}
@@ -107,7 +107,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix: &matrix-build
-        abi: ["cp313", "cp314"]
+        abi: ["cp314"]
         arch: ["amd64", "aarch64"]
         include:
           - arch: amd64
