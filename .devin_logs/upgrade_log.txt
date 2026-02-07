@@ -1,0 +1,41 @@
+=== Vulnerability Upgrade Log ===
+Date: $(date)
+
+VULNERABILITIES FIXED:
+1. aiohttp 3.13.2 -> 3.13.3
+   - CVE-2025-69223
+   - CVE-2025-69224
+   - CVE-2025-69228
+   - CVE-2025-69229
+   - CVE-2025-69230
+   - CVE-2025-69226
+   - CVE-2025-69227
+   - CVE-2025-69225
+
+2. mcp 1.14.1 -> 1.23.0
+   - CVE-2025-66416
+
+3. protobuf 6.32.0 -> 6.33.5
+   - CVE-2026-0994
+
+4. pynacl 1.6.0 -> 1.6.2
+   - CVE-2025-69277
+
+VULNERABILITIES NOT FIXED (No fix available):
+1. ecdsa 0.19.1 - CVE-2024-23342
+   - Transitive dependency from: python-jose, python-xbox
+   - Status: No fix version available on PyPI
+
+2. orjson 3.11.3 - CVE-2025-67221
+   - Direct dependency (core)
+   - Status: No fix version available on PyPI
+
+FILES MODIFIED:
+- requirements.txt (aiohttp)
+- pyproject.toml (aiohttp)
+- homeassistant/package_constraints.txt (aiohttp, protobuf, pynacl)
+- homeassistant/components/mcp/manifest.json (mcp)
+- homeassistant/components/mcp_server/manifest.json (mcp)
+- requirements_all.txt (mcp)
+
+TOTAL: 11 CVEs addressed, 2 CVEs unfixable (no patch available)
