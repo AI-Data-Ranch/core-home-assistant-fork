@@ -1,0 +1,19 @@
+Found 13 known vulnerabilities in 6 packages
+Name     Version ID             Fix Versions
+-------- ------- -------------- -------------
+aiohttp  3.13.2  CVE-2025-69223 3.13.3
+aiohttp  3.13.2  CVE-2025-69224 3.13.3
+aiohttp  3.13.2  CVE-2025-69228 3.13.3
+aiohttp  3.13.2  CVE-2025-69229 3.13.3
+aiohttp  3.13.2  CVE-2025-69230 3.13.3
+aiohttp  3.13.2  CVE-2025-69226 3.13.3
+aiohttp  3.13.2  CVE-2025-69227 3.13.3
+aiohttp  3.13.2  CVE-2025-69225 3.13.3
+ecdsa    0.19.1  CVE-2024-23342
+mcp      1.14.1  CVE-2025-66416 1.23.0
+orjson   3.11.3  CVE-2025-67221
+protobuf 6.32.0  CVE-2026-0994  5.29.6,6.33.5
+pynacl   1.6.0   CVE-2025-69277 1.6.2
+Name          Skip Reason
+------------- ------------------------------------------------------------------------------------
+homeassistant Dependency not found on PyPI and could not be audited: homeassistant (2026.1.0.dev0)
