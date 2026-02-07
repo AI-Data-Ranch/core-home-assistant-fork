@@ -1,0 +1,13 @@
+ .github/workflows/builder.yml             |  2 +-
+ .github/workflows/ci.yaml                 |  4 ++--
+ .github/workflows/translations.yml        |  2 +-
+ .github/workflows/wheels.yml              |  2 +-
+ .python-version                           |  2 +-
+ homeassistant/components/velux/entity.py  |  2 +-
+ homeassistant/const.py                    |  4 ++--
+ mypy.ini                                  |  2 +-
+ pyproject.toml                            | 12 ++++++++++--
+ script/hassfest/docker.py                 |  2 +-
+ script/hassfest/docker/Dockerfile         |  2 +-
+ tests/components/thermopro/test_sensor.py |  2 +-
+ 12 files changed, 23 insertions(+), 15 deletions(-)

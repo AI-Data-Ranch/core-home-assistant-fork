@@ -1,0 +1,20 @@
+41209af3d28 Add Python 3.14 upgrade logs and report
+2bbb8f7e027 CI: Apply ruff autofixes for Python 3.14 (velux, thermopro tests)
+467f59c21a8 Fix mypy errors: remove unused type: ignore comments for SQLAlchemy 2.0.44
+73b4ed1b4bc Fix ruff auto-fix issues: remove unnecessary forward reference quotes
+51464b7a79c Fix UP036 ruff errors for Python 3.14 minimum version
+6d51fb8a04b Fix mypy errors: remove unused type: ignore comments for SQLAlchemy 2.0.44
+c48bcec7954 CI: Adjust apple_tv typing stubs to variables to satisfy ruff/mypy; add UP036 noqas
+74ede5702d0 Add UP036 ignores for files with intentional Python version checks
+4fb639a4e39 Fix forward reference string annotations for Python 3.14
+309621e53f7 Remove unused type: ignore comments for SQLAlchemy 2.0.44 compatibility
+2167f1903ce Remove unused type: ignore comments for SQLAlchemy 2.0.44 compatibility
+cafa853e3e5 docs: Add vulnerability mitigation session logs and report
+699d056db33 Update task report with final CI results
+8f4c5aacb56 Add Python 3.14 upgrade session logs and report
+8942c7db316 Add task logs and metrics report for Python 3.14 upgrade
+6cc9c37da86 Fix UP036 ruff errors for Python 3.14 upgrade
+94af7a700d0 Fix: Revert standard-aifc and standard-telnetlib to 3.13.0 (3.14.0 not available on PyPI)
+a7fc76e343d Add upgrade logs and report for framework update task
+2f47a7642dc Fix CI: Remove Python 3.15 from version matrix (not yet released)
+e9e18d301dd Upgrade aiohttp to 3.13.3 and SQLAlchemy to 2.0.44
