@@ -1,0 +1,150 @@
+2026-02-07T03:47:23.3795106Z   MYPY_CACHE_VERSION: 1
+2026-02-07T03:47:23.3795306Z   HA_SHORT_VERSION: 2026.1
+2026-02-07T03:47:23.3795508Z   DEFAULT_PYTHON: 3.14.2
+2026-02-07T03:47:23.3795725Z   ALL_PYTHON_VERSIONS: ['3.14.2']
+2026-02-07T03:47:23.3796149Z   MARIADB_VERSIONS: ['mariadb:10.3.32','mariadb:10.6.10','mariadb:10.10.3','mariadb:10.11.2','mysql:8.0.32']
+2026-02-07T03:47:23.3796634Z   POSTGRESQL_VERSIONS: ['postgres:12.14','postgres:15.2']
+2026-02-07T03:47:23.3796942Z   PRE_COMMIT_CACHE: ~/.cache/pre-commit
+2026-02-07T03:47:23.3797190Z   UV_CACHE_DIR: /tmp/uv-cache
+2026-02-07T03:47:23.3797411Z   APT_CACHE_BASE: /home/runner/work/apt
+2026-02-07T03:47:23.3797674Z   APT_CACHE_DIR: /home/runner/work/apt/cache
+2026-02-07T03:47:23.3797959Z   APT_LIST_CACHE_DIR: /home/runner/work/apt/lists
+2026-02-07T03:47:23.3798223Z   SQLALCHEMY_WARN_20: 1
+2026-02-07T03:47:23.3798426Z   PYTHONASYNCIODEBUG: 1
+2026-02-07T03:47:23.3798614Z   HASS_CI: 1
+2026-02-07T03:47:23.3798845Z   pythonLocation: /opt/hostedtoolcache/Python/3.14.2/x64
+2026-02-07T03:47:23.3799236Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.14.2/x64/lib/pkgconfig
+2026-02-07T03:47:23.3799624Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.2/x64
+2026-02-07T03:47:23.3799975Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.2/x64
+2026-02-07T03:47:23.3800320Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.2/x64
+2026-02-07T03:47:23.3800676Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.14.2/x64/lib
+2026-02-07T03:47:23.3800972Z ##[endgroup]
+2026-02-07T03:47:23.7937558Z Cache not found for input keys: Linux-X64-3.14.2-mypy-1-1.19.0a4-2026.1-2026-02-07T03:47:1770436031, Linux-X64-3.14.2-mypy-1-1.19.0a4-2026.1-
+2026-02-07T03:47:23.8026005Z ##[group]Run echo "::add-matcher::.github/workflows/matchers/mypy.json"
+2026-02-07T03:47:23.8026519Z echo "::add-matcher::.github/workflows/matchers/mypy.json"
+2026-02-07T03:47:23.8058613Z shell: /usr/bin/bash -e {0}
+2026-02-07T03:47:23.8058839Z env:
+2026-02-07T03:47:23.8059008Z   CACHE_VERSION: 2
+2026-02-07T03:47:23.8059195Z   UV_CACHE_VERSION: 1
+2026-02-07T03:47:23.8059387Z   MYPY_CACHE_VERSION: 1
+2026-02-07T03:47:23.8059584Z   HA_SHORT_VERSION: 2026.1
+2026-02-07T03:47:23.8059788Z   DEFAULT_PYTHON: 3.14.2
+2026-02-07T03:47:23.8059992Z   ALL_PYTHON_VERSIONS: ['3.14.2']
+2026-02-07T03:47:23.8060405Z   MARIADB_VERSIONS: ['mariadb:10.3.32','mariadb:10.6.10','mariadb:10.10.3','mariadb:10.11.2','mysql:8.0.32']
+2026-02-07T03:47:23.8060889Z   POSTGRESQL_VERSIONS: ['postgres:12.14','postgres:15.2']
+2026-02-07T03:47:23.8061199Z   PRE_COMMIT_CACHE: ~/.cache/pre-commit
+2026-02-07T03:47:23.8061440Z   UV_CACHE_DIR: /tmp/uv-cache
+2026-02-07T03:47:23.8061702Z   APT_CACHE_BASE: /home/runner/work/apt
+2026-02-07T03:47:23.8062193Z   APT_CACHE_DIR: /home/runner/work/apt/cache
+2026-02-07T03:47:23.8062666Z   APT_LIST_CACHE_DIR: /home/runner/work/apt/lists
+2026-02-07T03:47:23.8062945Z   SQLALCHEMY_WARN_20: 1
+2026-02-07T03:47:23.8063153Z   PYTHONASYNCIODEBUG: 1
+2026-02-07T03:47:23.8063339Z   HASS_CI: 1
+2026-02-07T03:47:23.8063575Z   pythonLocation: /opt/hostedtoolcache/Python/3.14.2/x64
+2026-02-07T03:47:23.8063971Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.14.2/x64/lib/pkgconfig
+2026-02-07T03:47:23.8064371Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.2/x64
+2026-02-07T03:47:23.8064727Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.2/x64
+2026-02-07T03:47:23.8065081Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.2/x64
+2026-02-07T03:47:23.8065427Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.14.2/x64/lib
+2026-02-07T03:47:23.8065726Z ##[endgroup]
+2026-02-07T03:47:23.8148278Z ##[group]Run . venv/bin/activate
+2026-02-07T03:47:23.8148561Z . venv/bin/activate
+2026-02-07T03:47:23.8148787Z python --version
+2026-02-07T03:47:23.8149029Z mypy homeassistant pylint
+2026-02-07T03:47:23.8177444Z shell: /usr/bin/bash -e {0}
+2026-02-07T03:47:23.8177670Z env:
+2026-02-07T03:47:23.8177851Z   CACHE_VERSION: 2
+2026-02-07T03:47:23.8178047Z   UV_CACHE_VERSION: 1
+2026-02-07T03:47:23.8178241Z   MYPY_CACHE_VERSION: 1
+2026-02-07T03:47:23.8178452Z   HA_SHORT_VERSION: 2026.1
+2026-02-07T03:47:23.8178661Z   DEFAULT_PYTHON: 3.14.2
+2026-02-07T03:47:23.8178866Z   ALL_PYTHON_VERSIONS: ['3.14.2']
+2026-02-07T03:47:23.8179291Z   MARIADB_VERSIONS: ['mariadb:10.3.32','mariadb:10.6.10','mariadb:10.10.3','mariadb:10.11.2','mysql:8.0.32']
+2026-02-07T03:47:23.8179791Z   POSTGRESQL_VERSIONS: ['postgres:12.14','postgres:15.2']
+2026-02-07T03:47:23.8180102Z   PRE_COMMIT_CACHE: ~/.cache/pre-commit
+2026-02-07T03:47:23.8180358Z   UV_CACHE_DIR: /tmp/uv-cache
+2026-02-07T03:47:23.8180616Z   APT_CACHE_BASE: /home/runner/work/apt
+2026-02-07T03:47:23.8199409Z   APT_CACHE_DIR: /home/runner/work/apt/cache
+2026-02-07T03:47:23.8199753Z   APT_LIST_CACHE_DIR: /home/runner/work/apt/lists
+2026-02-07T03:47:23.8200042Z   SQLALCHEMY_WARN_20: 1
+2026-02-07T03:47:23.8200251Z   PYTHONASYNCIODEBUG: 1
+2026-02-07T03:47:23.8200442Z   HASS_CI: 1
+2026-02-07T03:47:23.8200672Z   pythonLocation: /opt/hostedtoolcache/Python/3.14.2/x64
+2026-02-07T03:47:23.8201086Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.14.2/x64/lib/pkgconfig
+2026-02-07T03:47:23.8201489Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.2/x64
+2026-02-07T03:47:23.8201959Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.2/x64
+2026-02-07T03:47:23.8202325Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.2/x64
+2026-02-07T03:47:23.8202686Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.14.2/x64/lib
+2026-02-07T03:47:23.8202985Z ##[endgroup]
+2026-02-07T03:47:24.1025615Z Python 3.14.2
+2026-02-07T03:47:26.0434949Z /opt/hostedtoolcache/Python/3.14.2/x64/lib/python3.14/importlib/__init__.py:88: UserWarning: Core Pydantic V1 functionality isn't compatible with Python 3.14 or greater.
+2026-02-07T03:47:26.0436717Z   return _bootstrap._gcd_import(name[level:], package, level)
+2026-02-07T03:49:29.7839289Z ##[error]homeassistant/scripts/benchmark/__init__.py:39: error: function asyncio.events.get_event_loop_policy is deprecated: Deprecated since Python 3.14; will be removed in Python 3.16.  [deprecated]
+2026-02-07T03:49:31.7521561Z ##[error]homeassistant/components/ssdp/common.py:18: error: Item "IPv4Address" of "IPv4Address | IPv6Address" has no attribute "scope_id"  [union-attr]
+2026-02-07T03:49:39.7168561Z ##[error]homeassistant/components/apple_tv/config_flow.py:144: error: Returning Any from function declared to return "str | None"  [no-any-return]
+2026-02-07T03:49:42.6677881Z ##[error]homeassistant/components/ssdp/server.py:174: error: Item "IPv4Address" of "IPv4Address | IPv6Address" has no attribute "scope_id"  [union-attr]
+2026-02-07T03:49:42.6681738Z ##[error]homeassistant/components/ssdp/server.py:179: error: Item "IPv4Address" of "IPv4Address | IPv6Address" has no attribute "scope_id"  [union-attr]
+2026-02-07T03:49:42.6927101Z ##[error]homeassistant/components/ssdp/scanner.py:263: error: Item "IPv4Address" of "IPv4Address | IPv6Address" has no attribute "scope_id"  [union-attr]
+2026-02-07T03:49:42.6930506Z ##[error]homeassistant/components/ssdp/scanner.py:268: error: Item "IPv4Address" of "IPv4Address | IPv6Address" has no attribute "scope_id"  [union-attr]
+2026-02-07T03:49:43.2948508Z ##[error]homeassistant/components/shelly/utils.py:256: error: Generator has incompatible item type "IPv4Address | IPv6Address"; expected "IPv4Address"  [misc]
+2026-02-07T03:49:51.4115532Z ##[error]homeassistant/components/apple_tv/entity.py:12: error: Module "homeassistant.components.apple_tv" has no attribute "AppleTVManager"  [attr-defined]
+2026-02-07T03:50:02.0330520Z ##[error]homeassistant/components/apple_tv/remote.py:22: error: Module "homeassistant.components.apple_tv" has no attribute "AppleTvConfigEntry"; maybe "ConfigEntry"?  [attr-defined]
+2026-02-07T03:50:02.0542666Z ##[error]homeassistant/components/apple_tv/media_player.py:45: error: Module "homeassistant.components.apple_tv" has no attribute "AppleTvConfigEntry"; maybe "ConfigEntry"?  [attr-defined]
+2026-02-07T03:50:02.0546770Z ##[error]homeassistant/components/apple_tv/media_player.py:45: error: Module "homeassistant.components.apple_tv" has no attribute "AppleTVManager"  [attr-defined]
+2026-02-07T03:50:02.0549685Z ##[error]homeassistant/components/apple_tv/media_player.py:113: error: Class cannot subclass "PowerListener" (has type "Any")  [misc]
+2026-02-07T03:50:02.0552839Z ##[error]homeassistant/components/apple_tv/media_player.py:113: error: Class cannot subclass "AudioListener" (has type "Any")  [misc]
+2026-02-07T03:50:02.0555800Z ##[error]homeassistant/components/apple_tv/media_player.py:113: error: Class cannot subclass "PushListener" (has type "Any")  [misc]
+2026-02-07T03:50:02.0558856Z ##[error]homeassistant/components/apple_tv/media_player.py:259: error: Returning Any from function declared to return "str | None"  [no-any-return]
+2026-02-07T03:50:02.0562337Z ##[error]homeassistant/components/apple_tv/media_player.py:270: error: Returning Any from function declared to return "str | None"  [no-any-return]
+2026-02-07T03:50:02.0565735Z ##[error]homeassistant/components/apple_tv/media_player.py:293: error: Returning Any from function declared to return "str | None"  [no-any-return]
+2026-02-07T03:50:02.0569010Z ##[error]homeassistant/components/apple_tv/media_player.py:300: error: Returning Any from function declared to return "float | None"  [no-any-return]
+2026-02-07T03:50:02.0572372Z ##[error]homeassistant/components/apple_tv/media_player.py:307: error: Returning Any from function declared to return "int | None"  [no-any-return]
+2026-02-07T03:50:02.0575589Z ##[error]homeassistant/components/apple_tv/media_player.py:314: error: Returning Any from function declared to return "int | None"  [no-any-return]
+2026-02-07T03:50:02.0578828Z ##[error]homeassistant/components/apple_tv/media_player.py:364: error: Returning Any from function declared to return "str | None"  [no-any-return]
+2026-02-07T03:50:02.0582293Z ##[error]homeassistant/components/apple_tv/media_player.py:385: error: Returning Any from function declared to return "str | None"  [no-any-return]
+2026-02-07T03:50:02.0585536Z ##[error]homeassistant/components/apple_tv/media_player.py:392: error: Returning Any from function declared to return "str | None"  [no-any-return]
+2026-02-07T03:50:02.0588797Z ##[error]homeassistant/components/apple_tv/media_player.py:399: error: Returning Any from function declared to return "str | None"  [no-any-return]
+2026-02-07T03:50:02.0592134Z ##[error]homeassistant/components/apple_tv/media_player.py:406: error: Returning Any from function declared to return "str | None"  [no-any-return]
+2026-02-07T03:50:02.0595337Z ##[error]homeassistant/components/apple_tv/media_player.py:441: error: Returning Any from function declared to return "bool | None"  [no-any-return]
+2026-02-07T03:50:02.0598391Z ##[error]homeassistant/components/apple_tv/media_player.py:447: error: Returning Any from function declared to return "bool"  [no-any-return]
+2026-02-07T03:50:15.1582748Z ##[error]homeassistant/runner.py:176: error: Name "asyncio.DefaultEventLoopPolicy" is not defined  [name-defined]
+2026-02-07T03:50:15.1586009Z ##[error]homeassistant/runner.py:176: error: Class cannot subclass "DefaultEventLoopPolicy" (has type "Any")  [misc]
+2026-02-07T03:50:15.1588422Z ##[error]homeassistant/runner.py:187: error: Unused "type: ignore[attr-defined]" comment  [unused-ignore]
+2026-02-07T03:50:15.1592108Z ##[error]homeassistant/runner.py:284: error: function asyncio.events.set_event_loop_policy is deprecated: Deprecated since Python 3.14; will be removed in Python 3.16.  [deprecated]
+2026-02-07T03:50:15.2069125Z ##[error]homeassistant/scripts/auth.py:51: error: function asyncio.events.set_event_loop_policy is deprecated: Deprecated since Python 3.14; will be removed in Python 3.16.  [deprecated]
+2026-02-07T03:50:15.2118812Z ##[error]homeassistant/scripts/__init__.py:64: error: function asyncio.events.set_event_loop_policy is deprecated: Deprecated since Python 3.14; will be removed in Python 3.16.  [deprecated]
+2026-02-07T03:50:15.2477672Z Found 34 errors in 12 files (checked 8668 source files)
+2026-02-07T03:50:15.5173205Z ##[error]Process completed with exit code 1.
+2026-02-07T03:50:15.5255807Z Post job cleanup.
+2026-02-07T03:50:15.6012679Z [command]/usr/bin/git version
+2026-02-07T03:50:15.6047149Z git version 2.52.0
+2026-02-07T03:50:15.6084867Z Temporarily overriding HOME='/home/runner/work/_temp/f8643f1e-11d2-45e4-9c45-3317d3aaec58' before making global git config changes
+2026-02-07T03:50:15.6086295Z Adding repository directory to the temporary git global config as a safe directory
+2026-02-07T03:50:15.6091170Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/core-home-assistant-fork/core-home-assistant-fork
+2026-02-07T03:50:15.6121536Z Removing SSH command configuration
+2026-02-07T03:50:15.6128198Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-02-07T03:50:15.6160905Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-02-07T03:50:15.6413592Z Removing HTTP extra header
+2026-02-07T03:50:15.6419040Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-02-07T03:50:15.6451227Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-02-07T03:50:15.6693771Z Removing includeIf entries pointing to credentials config files
+2026-02-07T03:50:15.6700144Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-02-07T03:50:15.6723689Z includeif.gitdir:/home/runner/work/core-home-assistant-fork/core-home-assistant-fork/.git.path
+2026-02-07T03:50:15.6725064Z includeif.gitdir:/home/runner/work/core-home-assistant-fork/core-home-assistant-fork/.git/worktrees/*.path
+2026-02-07T03:50:15.6725803Z includeif.gitdir:/github/workspace/.git.path
+2026-02-07T03:50:15.6726196Z includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-02-07T03:50:15.6734253Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/core-home-assistant-fork/core-home-assistant-fork/.git.path
+2026-02-07T03:50:15.6755040Z /home/runner/work/_temp/git-credentials-2e7af8a4-ec3d-49d1-a43a-7703b60e6b9f.config
+2026-02-07T03:50:15.6765745Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/core-home-assistant-fork/core-home-assistant-fork/.git.path /home/runner/work/_temp/git-credentials-2e7af8a4-ec3d-49d1-a43a-7703b60e6b9f.config
+2026-02-07T03:50:15.6799658Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/core-home-assistant-fork/core-home-assistant-fork/.git/worktrees/*.path
+2026-02-07T03:50:15.6821211Z /home/runner/work/_temp/git-credentials-2e7af8a4-ec3d-49d1-a43a-7703b60e6b9f.config
+2026-02-07T03:50:15.6830652Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/core-home-assistant-fork/core-home-assistant-fork/.git/worktrees/*.path /home/runner/work/_temp/git-credentials-2e7af8a4-ec3d-49d1-a43a-7703b60e6b9f.config
+2026-02-07T03:50:15.6861649Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git.path
+2026-02-07T03:50:15.6882220Z /github/runner_temp/git-credentials-2e7af8a4-ec3d-49d1-a43a-7703b60e6b9f.config
+2026-02-07T03:50:15.6889699Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git.path /github/runner_temp/git-credentials-2e7af8a4-ec3d-49d1-a43a-7703b60e6b9f.config
+2026-02-07T03:50:15.6919216Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-02-07T03:50:15.6939690Z /github/runner_temp/git-credentials-2e7af8a4-ec3d-49d1-a43a-7703b60e6b9f.config
+2026-02-07T03:50:15.6950630Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git/worktrees/*.path /github/runner_temp/git-credentials-2e7af8a4-ec3d-49d1-a43a-7703b60e6b9f.config
+2026-02-07T03:50:15.7017156Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-02-07T03:50:15.7257569Z Removing credentials config '/home/runner/work/_temp/git-credentials-2e7af8a4-ec3d-49d1-a43a-7703b60e6b9f.config'
+2026-02-07T03:50:15.7375511Z Cleaning up orphan processes
