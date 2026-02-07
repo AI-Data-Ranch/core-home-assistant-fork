@@ -934,6 +934,14 @@ split-on-trailing-comma = false
 "homeassistant/**" = ["PTH"]
 "tests/**" = ["PTH"]
 
+# Apple TV component doesn't support Python 3.14 yet (pyatv library incompatibility)
+"homeassistant/components/apple_tv/__init__.py" = ["UP036"]
+"tests/components/apple_tv/__init__.py" = ["UP036"]
+"tests/components/apple_tv/conftest.py" = ["UP036"]
+
+# Conditional imports for Python 3.13/3.14 compatibility
+"homeassistant/util/frozen_dataclass_compat.py" = ["UP036"]
+
 [tool.ruff.lint.mccabe]
 max-complexity = 25
 
