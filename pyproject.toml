@@ -22,7 +22,7 @@ classifiers = [
   "Programming Language :: Python :: 3.14",
   "Topic :: Home Automation",
 ]
-requires-python = ">=3.13.2"
+requires-python = ">=3.14.0"
 dependencies = [
   "aiodns==3.6.1",
   # Integrations may depend on hassio integration without listing it to
@@ -102,7 +102,7 @@ include-package-data = true
 include = ["homeassistant*"]
 
 [tool.pylint.MAIN]
-py-version = "3.13"
+py-version = "3.14"
 # Use a conservative default here; 2 should speed up most setups and not hurt
 # any too bad. Override on command line as appropriate.
 jobs = 2
