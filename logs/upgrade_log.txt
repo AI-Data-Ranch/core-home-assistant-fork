@@ -1,0 +1,37 @@
+=== VULNERABILITY UPGRADE LOG ===
+Date: $(date -u '+%Y-%m-%d %H:%M:%S UTC')
+Repository: AI-Data-Ranch/core-home-assistant-fork
+Base Branch: dev
+Feature Branch: feature/vulnerability-update_20260206_182817900
+
+=== VULNERABILITIES IDENTIFIED ===
+Total Unique Vulnerabilities: 9
+
+1. Package: aiohttp==3.13.2
+   - SNYK-PYTHON-AIOHTTP-14871873: HTTP Request Smuggling (medium)
+   - SNYK-PYTHON-AIOHTTP-14871876: Allocation of Resources Without Limits or Throttling (high)
+   - SNYK-PYTHON-AIOHTTP-14871877: Allocation of Resources Without Limits or Throttling (high)
+   - SNYK-PYTHON-AIOHTTP-14871888: Information Exposure (medium)
+   - SNYK-PYTHON-AIOHTTP-14871929: HTTP Request Smuggling (medium)
+   - SNYK-PYTHON-AIOHTTP-14871954: Allocation of Resources Without Limits or Throttling (medium)
+   - SNYK-PYTHON-AIOHTTP-14871979: Infinite loop (high)
+   - SNYK-PYTHON-AIOHTTP-14872000: Logging of Excessive Data (medium)
+   Fixed Version: 3.13.3
+
+2. Package: orjson==3.11.3
+   - SNYK-PYTHON-ORJSON-15123465: Uncontrolled Recursion (medium)
+   Fixed Version: 3.11.6
+
+=== UPGRADES APPLIED ===
+1. aiohttp: 3.13.2 -> 3.13.3
+2. orjson: 3.11.3 -> 3.11.6
+
+=== FILES MODIFIED ===
+1. requirements.txt
+2. pyproject.toml
+3. homeassistant/package_constraints.txt
+
+=== SEVERITY SUMMARY ===
+High: 3 vulnerabilities
+Medium: 6 vulnerabilities
+Total: 9 vulnerabilities fixed
