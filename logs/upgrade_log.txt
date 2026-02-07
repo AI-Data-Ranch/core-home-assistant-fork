@@ -1,0 +1,5 @@
+=== Upgrade Log ===
+Current versions:
+aiohttp: 3.13.2 -> 3.13.3
+SQLAlchemy: 2.0.41 -> 2.0.44
+Upgrade started: 2026-02-07 02:31:32 UTC
