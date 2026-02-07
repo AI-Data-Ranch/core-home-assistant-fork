@@ -18,11 +18,10 @@ classifiers = [
   "Intended Audience :: End Users/Desktop",
   "Intended Audience :: Developers",
   "Operating System :: OS Independent",
-  "Programming Language :: Python :: 3.13",
   "Programming Language :: Python :: 3.14",
   "Topic :: Home Automation",
 ]
-requires-python = ">=3.13.2"
+requires-python = ">=3.14.0"
 dependencies = [
   "aiodns==3.6.1",
   # Integrations may depend on hassio integration without listing it to
@@ -102,7 +101,7 @@ include-package-data = true
 include = ["homeassistant*"]
 
 [tool.pylint.MAIN]
-py-version = "3.13"
+py-version = "3.14"
 # Use a conservative default here; 2 should speed up most setups and not hurt
 # any too bad. Override on command line as appropriate.
 jobs = 2
@@ -934,6 +933,14 @@ split-on-trailing-comma = false
 # Temporary
 "homeassistant/**" = ["PTH"]
 "tests/**" = ["PTH"]
+
+# Apple TV component doesn't support Python 3.14 yet (pyatv library incompatibility)
+"homeassistant/components/apple_tv/__init__.py" = ["UP036"]
+"tests/components/apple_tv/__init__.py" = ["UP036"]
+"tests/components/apple_tv/conftest.py" = ["UP036"]
+
+# Conditional imports for Python 3.13/3.14 compatibility
+"homeassistant/util/frozen_dataclass_compat.py" = ["UP036"]
 
 [tool.ruff.lint.mccabe]
 max-complexity = 25

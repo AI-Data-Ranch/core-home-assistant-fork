@@ -453,7 +453,7 @@ async def _async_generate_memory_profile(hass: HomeAssistant, call: ServiceCall)
     # Imports deferred to avoid loading modules
     # in memory since usually only one part of this
     # integration is used at a time
-    if sys.version_info >= (3, 14):
+    if sys.version_info >= (3, 14):  # noqa: UP036
         raise HomeAssistantError(
             "Memory profiling is not supported on Python 3.14. Please use Python 3.13."
         )

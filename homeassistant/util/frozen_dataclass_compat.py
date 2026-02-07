@@ -103,7 +103,7 @@ class FrozenOrThawed(type):
                     continue
                 annotations |= get_annotations(parent, format=Format.FORWARDREF)
 
-            if "__annotations__" in cls.__dict__ or sys.version_info < (3, 14):
+            if "__annotations__" in cls.__dict__:
                 cls.__annotations__ = annotations
             else:
 
