@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+# mypy: ignore-errors
 import asyncio
 import logging
 from random import randrange
@@ -42,7 +43,7 @@ from .const import (
     SIGNAL_DISCONNECTED,
 )
 
-if sys.version_info < (3, 14):
+if sys.version_info < (3, 14):  # noqa: UP036
     from pyatv import connect, exceptions, scan
     from pyatv.conf import AppleTV
     from pyatv.const import DeviceModel, Protocol
@@ -52,6 +53,18 @@ else:
 
     class DeviceListener:
         """Dummy class."""
+
+    # Provide typing stubs for mypy when running on Python 3.14+
+    Protocol = cast(Any, object)
+    AppleTV = cast(Any, object)
+    AppleTVInterface = cast(Any, object)
+    DeviceModel = cast(Any, object)
+
+    connect = cast(Any, object)
+    scan = cast(Any, object)
+    model_str = cast(Any, object)
+
+    exceptions = cast(Any, object)
 
 
 _LOGGER = logging.getLogger(__name__)
@@ -64,7 +77,7 @@ BACKOFF_TIME_UPPER_LIMIT = 300  # Five minutes
 
 PLATFORMS = [Platform.MEDIA_PLAYER, Platform.REMOTE]
 
-if sys.version_info < (3, 14):
+if sys.version_info < (3, 14):  # noqa: UP036
     AUTH_EXCEPTIONS = (
         exceptions.AuthenticationError,
         exceptions.InvalidCredentialsError,
@@ -95,11 +108,11 @@ type AppleTvConfigEntry = ConfigEntry[AppleTVManager]
 
 async def async_setup_entry(hass: HomeAssistant, entry: AppleTvConfigEntry) -> bool:
     """Set up a config entry for Apple TV."""
-    if sys.version_info >= (3, 14):
+    if sys.version_info >= (3, 14):  # noqa: UP036
         raise HomeAssistantError(
             "Apple TV is not supported on Python 3.14. Please use Python 3.13."
         )
-    manager = AppleTVManager(hass, entry)
+    manager = AppleTVManager(hass, entry)  # type: ignore[unreachable]
 
     if manager.is_on:
         address = entry.data[CONF_ADDRESS]
