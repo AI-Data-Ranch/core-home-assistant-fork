@@ -935,6 +935,14 @@ split-on-trailing-comma = false
 "homeassistant/**" = ["PTH"]
 "tests/**" = ["PTH"]
 
+# Allow version checks for components that don't support Python 3.14 yet
+"homeassistant/components/apple_tv/__init__.py" = ["UP036"]
+"homeassistant/components/profiler/__init__.py" = ["UP036"]
+"homeassistant/components/recorder/executor.py" = ["UP036"]
+"homeassistant/util/frozen_dataclass_compat.py" = ["UP036"]
+"tests/components/apple_tv/__init__.py" = ["UP036"]
+"tests/components/apple_tv/conftest.py" = ["UP036"]
+
 [tool.ruff.lint.mccabe]
 max-complexity = 25
 
