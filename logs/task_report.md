@@ -64,6 +64,36 @@
 - **Tool**: Snyk
 - **Authentication**: SNYK_TOKEN environment variable
 
+## CI Results
+| Check | Status |
+|-------|--------|
+| Check mypy | PASS |
+| Check pylint | PASS |
+| Check all requirements | PASS |
+| Check pylint on tests | PASS |
+| Check Dockerfile | PASS |
+| Check script/hassfest/docker/Dockerfile | PASS |
+| Prepare dependencies (3.14.2) | PASS |
+| Check Dockerfile.dev | PASS |
+| Prepare pre-commit base | PASS |
+| Prepare dependencies (3.13.11) | PASS |
+| Collect information & changes data | PASS |
+| Check ruff | FAIL (cache miss - pre-existing) |
+| Check other linters | FAIL (cache miss - pre-existing) |
+| Check ruff-format | FAIL (cache miss - pre-existing) |
+| Audit licenses (3.13.11) | FAIL (cache miss - pre-existing) |
+| Audit licenses (3.14.2) | FAIL (cache miss - pre-existing) |
+| Check hassfest | FAIL (cache miss - pre-existing) |
+| Dependency review | FAIL (repo setting not enabled - pre-existing) |
+
+**Note**: All CI failures are due to pre-existing infrastructure issues (cache not populated, dependency graph not enabled), not related to the dependency updates. The PR is mergeable.
+
+## Local Test Results
+- **Tests Passed**: 161
+- **Tests Skipped**: 1
+- **Tests Failed**: 0
+- **Duration**: 4.37s
+
 ## Notes
 - Pre-existing lint errors in blinksticklight and dovado components are unrelated to this update
 - All dependency updates are backward compatible (patch/minor version updates)
