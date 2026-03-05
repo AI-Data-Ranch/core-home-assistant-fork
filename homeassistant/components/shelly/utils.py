@@ -255,7 +255,7 @@ async def get_coap_context(hass: HomeAssistant) -> COAP:
         ipv4.extend(
             address
             for address in await network.async_get_enabled_source_ips(hass)
-            if address.version == 4
+            if isinstance(address, IPv4Address)
             and not (
                 address.is_link_local
                 or address.is_loopback

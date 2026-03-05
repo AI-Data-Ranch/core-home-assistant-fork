@@ -1,19 +1,20 @@
 """Fixtures for component."""
 
 from collections.abc import Generator
-import sys
 from unittest.mock import AsyncMock, MagicMock, patch
 
 import pytest
 
-if sys.version_info < (3, 14):
+try:
     from pyatv import conf
     from pyatv.const import PairingRequirement, Protocol
     from pyatv.support import http
 
     from .common import MockPairingHandler, airplay_service, create_conf, mrp_service
 
-if sys.version_info >= (3, 14):
+    _PYATV_AVAILABLE = True
+except ImportError:
+    _PYATV_AVAILABLE = False
     collect_ignore_glob = ["test_*.py"]
 
 

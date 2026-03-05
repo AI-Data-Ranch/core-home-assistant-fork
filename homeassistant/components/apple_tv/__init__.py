@@ -5,7 +5,6 @@ from __future__ import annotations
 import asyncio
 import logging
 from random import randrange
-import sys
 from typing import Any, cast
 
 from homeassistant.components import zeroconf
@@ -42,16 +41,20 @@ from .const import (
     SIGNAL_DISCONNECTED,
 )
 
-if sys.version_info < (3, 14):
+try:
     from pyatv import connect, exceptions, scan
     from pyatv.conf import AppleTV
     from pyatv.const import DeviceModel, Protocol
     from pyatv.convert import model_str
     from pyatv.interface import AppleTV as AppleTVInterface, DeviceListener
-else:
 
-    class DeviceListener:
+    _PYATV_AVAILABLE = True
+except ImportError:
+
+    class DeviceListener:  # type: ignore[no-redef]
         """Dummy class."""
+
+    _PYATV_AVAILABLE = False
 
 
 _LOGGER = logging.getLogger(__name__)
@@ -64,7 +67,7 @@ BACKOFF_TIME_UPPER_LIMIT = 300  # Five minutes
 
 PLATFORMS = [Platform.MEDIA_PLAYER, Platform.REMOTE]
 
-if sys.version_info < (3, 14):
+if _PYATV_AVAILABLE:
     AUTH_EXCEPTIONS = (
         exceptions.AuthenticationError,
         exceptions.InvalidCredentialsError,
@@ -85,9 +88,9 @@ if sys.version_info < (3, 14):
         exceptions.DeviceIdMissingError,
     )
 else:
-    AUTH_EXCEPTIONS = ()
-    CONNECTION_TIMEOUT_EXCEPTIONS = ()
-    DEVICE_EXCEPTIONS = ()
+    AUTH_EXCEPTIONS = ()  # type: ignore[assignment]
+    CONNECTION_TIMEOUT_EXCEPTIONS = ()  # type: ignore[assignment]
+    DEVICE_EXCEPTIONS = ()  # type: ignore[assignment]
 
 
 type AppleTvConfigEntry = ConfigEntry[AppleTVManager]
@@ -95,7 +98,7 @@ type AppleTvConfigEntry = ConfigEntry[AppleTVManager]
 
 async def async_setup_entry(hass: HomeAssistant, entry: AppleTvConfigEntry) -> bool:
     """Set up a config entry for Apple TV."""
-    if sys.version_info >= (3, 14):
+    if not _PYATV_AVAILABLE:
         raise HomeAssistantError(
             "Apple TV is not supported on Python 3.14. Please use Python 3.13."
         )
