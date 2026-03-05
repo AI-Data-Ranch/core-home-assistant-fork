@@ -207,7 +207,7 @@ JSONB_VARIANT_CAST = Text().with_variant(
 DATETIME_TYPE = (
     DateTime(timezone=True)
     .with_variant(mysql.DATETIME(timezone=True, fsp=6), "mysql", "mariadb")
-    .with_variant(FAST_PYSQLITE_DATETIME(), "sqlite")
+    .with_variant(FAST_PYSQLITE_DATETIME(), "sqlite")  # type: ignore[no-untyped-call]
 )
 DOUBLE_TYPE = (
     Float()
