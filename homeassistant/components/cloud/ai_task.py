@@ -35,15 +35,17 @@ def _convert_image_for_editing(data: bytes) -> tuple[bytes, str]:
     with Image.open(stream) as img:
         mode = img.mode
         if mode not in ("RGBA", "LA", "L"):
-            img = img.convert("RGBA")
+            converted = img.convert("RGBA")
+        else:
+            converted = img
 
         output = io.BytesIO()
-        if img.mode in ("RGBA", "LA", "L"):
-            img.save(output, format="PNG")
+        if converted.mode in ("RGBA", "LA", "L"):
+            converted.save(output, format="PNG")
             return output.getvalue(), "image/png"
 
-        img.save(output, format=img.format or "PNG")
-        return output.getvalue(), f"image/{(img.format or 'png').lower()}"
+        converted.save(output, format=converted.format or "PNG")
+        return output.getvalue(), f"image/{(converted.format or 'png').lower()}"
 
 
 async def async_prepare_image_generation_attachments(
