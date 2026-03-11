@@ -112,8 +112,8 @@ async def async_setup_entry(
 class AppleTvMediaPlayer(
     AppleTVEntity,
     MediaPlayerEntity,
-    PowerListener,
-    AudioListener,
+    PowerListener,  # type: ignore[misc]
+    AudioListener,  # type: ignore[misc]
     PushListener,  # type: ignore[misc]
 ):
     """Representation of an Apple TV media player."""
