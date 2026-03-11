@@ -110,7 +110,11 @@ async def async_setup_entry(
 
 
 class AppleTvMediaPlayer(
-    AppleTVEntity, MediaPlayerEntity, PowerListener, AudioListener, PushListener
+    AppleTVEntity,
+    MediaPlayerEntity,
+    PowerListener,
+    AudioListener,
+    PushListener,  # type: ignore[misc]
 ):
     """Representation of an Apple TV media player."""
 
@@ -256,7 +260,7 @@ class AppleTvMediaPlayer(
             and self._is_feature_available(FeatureName.App)
             and (app := self.atv.metadata.app) is not None
         ):
-            return app.identifier
+            return app.identifier  # type: ignore[no-any-return]
         return None
 
     @property
@@ -267,7 +271,7 @@ class AppleTvMediaPlayer(
             and self._is_feature_available(FeatureName.App)
             and (app := self.atv.metadata.app) is not None
         ):
-            return app.name
+            return app.name  # type: ignore[no-any-return]
         return None
 
     @property
@@ -290,28 +294,28 @@ class AppleTvMediaPlayer(
     def media_content_id(self) -> str | None:
         """Content ID of current playing media."""
         if self._playing:
-            return self._playing.content_identifier
+            return self._playing.content_identifier  # type: ignore[no-any-return]
         return None
 
     @property
     def volume_level(self) -> float | None:
         """Volume level of the media player (0..1)."""
         if self.atv and self._is_feature_available(FeatureName.Volume):
-            return self.atv.audio.volume / 100.0  # from percent
+            return self.atv.audio.volume / 100.0  # type: ignore[no-any-return]  # from percent
         return None
 
     @property
     def media_duration(self) -> int | None:
         """Duration of current playing media in seconds."""
         if self._playing:
-            return self._playing.total_time
+            return self._playing.total_time  # type: ignore[no-any-return]
         return None
 
     @property
     def media_position(self) -> int | None:
         """Position of current playing media in seconds."""
         if self._playing:
-            return self._playing.position
+            return self._playing.position  # type: ignore[no-any-return]
         return None
 
     @property
@@ -361,7 +365,7 @@ class AppleTvMediaPlayer(
             and self._is_feature_available(FeatureName.Artwork)
             and state not in {None, MediaPlayerState.OFF, MediaPlayerState.IDLE}
         ):
-            return self.atv.metadata.artwork_id
+            return self.atv.metadata.artwork_id  # type: ignore[no-any-return]
         return None
 
     async def async_get_media_image(self) -> tuple[bytes | None, str | None]:
@@ -382,28 +386,28 @@ class AppleTvMediaPlayer(
     def media_title(self) -> str | None:
         """Title of current playing media."""
         if self._playing:
-            return self._playing.title
+            return self._playing.title  # type: ignore[no-any-return]
         return None
 
     @property
     def media_artist(self) -> str | None:
         """Artist of current playing media, music track only."""
         if self._playing and self._is_feature_available(FeatureName.Artist):
-            return self._playing.artist
+            return self._playing.artist  # type: ignore[no-any-return]
         return None
 
     @property
     def media_album_name(self) -> str | None:
         """Album name of current playing media, music track only."""
         if self._playing and self._is_feature_available(FeatureName.Album):
-            return self._playing.album
+            return self._playing.album  # type: ignore[no-any-return]
         return None
 
     @property
     def media_series_title(self) -> str | None:
         """Title of series of current playing media, TV show only."""
         if self._playing and self._is_feature_available(FeatureName.SeriesName):
-            return self._playing.series_name
+            return self._playing.series_name  # type: ignore[no-any-return]
         return None
 
     @property
@@ -438,13 +442,13 @@ class AppleTvMediaPlayer(
     def shuffle(self) -> bool | None:
         """Boolean if shuffle is enabled."""
         if self._playing and self._is_feature_available(FeatureName.Shuffle):
-            return self._playing.shuffle != ShuffleState.Off
+            return self._playing.shuffle != ShuffleState.Off  # type: ignore[no-any-return]
         return None
 
     def _is_feature_available(self, feature: FeatureName) -> bool:
         """Return if a feature is available."""
         if self.atv and self._playing:
-            return self.atv.features.in_state(FeatureState.Available, feature)
+            return self.atv.features.in_state(FeatureState.Available, feature)  # type: ignore[no-any-return]
         return False
 
     async def async_browse_media(
