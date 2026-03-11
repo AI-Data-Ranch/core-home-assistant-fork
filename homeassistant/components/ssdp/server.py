@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import asyncio
 from contextlib import ExitStack
+from ipaddress import IPv6Address
 import logging
 import socket
 from time import time
@@ -170,7 +171,7 @@ class Server:
         with ExitStack() as stack:
             for source_ip in await async_build_source_set(self.hass):
                 source_ip_str = str(source_ip)
-                if source_ip.version == 6:
+                if isinstance(source_ip, IPv6Address):
                     assert source_ip.scope_id is not None
                     source_tuple: AddressTupleVXType = (
                         source_ip_str,
