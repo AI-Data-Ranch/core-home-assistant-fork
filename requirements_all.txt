@@ -1141,9 +1141,6 @@ growattServer==1.7.1
 # homeassistant.components.google_sheets
 gspread==5.5.0
 
-# homeassistant.components.profiler
-guppy3==3.1.5;python_version<'3.14'
-
 # homeassistant.components.iaqualink
 h2==4.3.0
 
@@ -1905,9 +1902,6 @@ pyatag==0.3.5.3
 
 # homeassistant.components.netatmo
 pyatmo==9.2.3
-
-# homeassistant.components.apple_tv
-pyatv==0.16.1;python_version<'3.14'
 
 # homeassistant.components.aussie_broadband
 pyaussiebb==0.1.5
