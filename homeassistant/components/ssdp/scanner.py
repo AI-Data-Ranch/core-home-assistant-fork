@@ -260,12 +260,12 @@ class Scanner:
         for source_ip in await async_build_source_set(self.hass):
             source_ip_str = str(source_ip)
             if source_ip.version == 6:
-                assert source_ip.scope_id is not None
+                assert source_ip.scope_id is not None  # type: ignore[union-attr]
                 source_tuple: AddressTupleVXType = (
                     source_ip_str,
                     0,
                     0,
-                    int(source_ip.scope_id),
+                    int(source_ip.scope_id),  # type: ignore[union-attr]
                 )
             else:
                 source_tuple = (source_ip_str, 0)

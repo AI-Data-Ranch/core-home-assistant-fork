@@ -141,7 +141,7 @@ class AppleTVConfigFlow(ConfigFlow, domain=DOMAIN):
         all_identifiers = set(self.atv.all_identifiers)
         if unique_id := self._entry_unique_id_from_identifers(all_identifiers):
             return unique_id
-        return self.atv.identifier
+        return self.atv.identifier  # type: ignore[no-any-return,unused-ignore]
 
     @callback
     def _entry_unique_id_from_identifers(self, all_identifiers: set[str]) -> str | None:

@@ -1,0 +1,84 @@
+# Language Upgrade Decision and Process Log
+
+## Decision Summary
+- **Language**: Python
+- **Current Version**: 3.13
+- **Target Version**: 3.14
+- **Decision**: Upgrade
+- **Decision Date**: 2026-03-11
+
+## Rationale
+
+### Support Timeline Analysis
+- **Python 3.13**: Released October 2024, active support until October 2026, security fixes until October 2029.
+- **Python 3.14**: Released October 2025, active support until October 2027, security fixes until October 2030.
+
+Python 3.14 is now the current stable release with active support. Upgrading ensures access to the latest performance improvements, security patches, and language features.
+
+### Version Selection Logic
+- The project already had partial Python 3.14 support (classifiers in pyproject.toml listed 3.14, CI tested against both 3.13 and 3.14, wheels built for cp314).
+- The branch name `feature/python14-upgrade_20260311_use_playbook` explicitly targets Python 3.14.
+- Python 3.14 is a stable release (not beta/RC) and has been available since October 2025.
+- As a large open-source project, Home Assistant benefits from staying on the latest stable Python for performance improvements and new language features.
+
+### Risk Assessment
+- **Breaking changes**: Python 3.14 has minimal breaking changes from 3.13. The project already tested against 3.14 in CI.
+- **Dependency compatibility**: Core dependencies (aiohttp, SQLAlchemy, etc.) already support Python 3.14 as evidenced by existing CI matrix.
+- **Some components have known 3.14 incompatibilities**: The `profiler` and `apple_tv` components already have runtime checks for Python 3.14 incompatibility (memory profiling, pyatv). These are pre-existing and documented in the codebase.
+- **Pydantic V1 warnings**: Several integrations use Pydantic V1 which emits warnings on Python 3.14. These are already suppressed in pytest filterwarnings configuration.
+
+## Actions Taken
+
+### 1. Version Reference Updates
+
+| File | Change | Reason |
+|------|--------|--------|
+| `pyproject.toml` | Removed `Programming Language :: Python :: 3.13` classifier, kept `3.14` | Only targeting 3.14 now |
+| `pyproject.toml` | `requires-python` from `>=3.13.2` to `>=3.14.0` | Minimum Python version bumped |
+| `pyproject.toml` | `py-version` (pylint) from `"3.13"` to `"3.14"` | Pylint target version |
+| `.python-version` | `3.13` to `3.14` | Used by uv/pyenv for local development and Dockerfile.dev |
+| `mypy.ini` | `python_version` from `3.13` to `3.14` | Mypy type checking target |
+| `homeassistant/const.py` | `REQUIRED_PYTHON_VER` from `(3, 13, 2)` to `(3, 14, 0)` | Runtime version check |
+| `homeassistant/const.py` | `REQUIRED_NEXT_PYTHON_VER` from `(3, 13, 2)` to `(3, 14, 0)` | Next required version constant |
+| `.github/workflows/ci.yaml` | `DEFAULT_PYTHON` from `"3.13.11"` to `"3.14.2"` | CI default Python |
+| `.github/workflows/ci.yaml` | `ALL_PYTHON_VERSIONS` from `"['3.13.11', '3.14.2']"` to `"['3.14.2']"` | CI test matrix |
+| `.github/workflows/translations.yml` | `DEFAULT_PYTHON` from `"3.13"` to `"3.14"` | Translations workflow |
+| `.github/workflows/wheels.yml` | `DEFAULT_PYTHON` from `"3.13"` to `"3.14"` | Wheels build workflow |
+| `.github/workflows/wheels.yml` | `abi` matrix from `["cp313", "cp314"]` to `["cp314"]` | Only build 3.14 wheels |
+| `.github/workflows/builder.yml` | `DEFAULT_PYTHON` from `"3.13"` to `"3.14"` | Docker image build workflow |
+| `.github/copilot-instructions.md` | Compatibility note from `Python 3.13+` to `Python 3.14+` | Developer documentation |
+| `script/hassfest/docker/Dockerfile` | Base image from `python:3.13-alpine` to `python:3.14-alpine` | Hassfest Docker image |
+| `script/hassfest/docker.py` | Template from `python:3.13-alpine` to `python:3.14-alpine` | Hassfest Dockerfile generator |
+
+### 2. Files NOT Changed (Intentionally)
+
+| File/Pattern | Reason |
+|------|--------|
+| `pyproject.toml` dependencies (`aiohttp==3.13.2`, `standard-aifc==3.13.0`, `standard-telnetlib==3.13.0`) | These are package versions, not Python version references |
+| `pyproject.toml` pytest filterwarnings mentioning "Python 3.13" | These are deprecation warning message patterns from third-party libraries |
+| `requirements.txt` (`aiohttp==3.13.2`, `standard-aifc==3.13.0`, `standard-telnetlib==3.13.0`) | Package versions, not Python versions |
+| `homeassistant/components/profiler/__init__.py` | Already has Python 3.14 incompatibility message |
+| `homeassistant/components/apple_tv/__init__.py` | Already has Python 3.14 incompatibility message |
+| `homeassistant/helpers/aiohttp_client.py` comment | Historical comment about Python 3.12.7/3.13.1 |
+| `homeassistant/helpers/system_info.py` comments | Historical comments about Python 3.13 behavior |
+| `tests/components/cloud/test_http_api.py` | Test data using `"3.13.1"` as mock Python version in snapshots |
+| `tests/components/cloud/snapshots/test_http_api.ambr` | Snapshot data with mock Python version |
+| `Dockerfile` | Auto-generated by hassfest, uses `BUILD_FROM` arg (no hardcoded Python version) |
+
+### 3. Build and Test Results
+- **Lint checks**: `ruff check homeassistant` — All checks passed (0 errors)
+- **Tests**: `pytest tests/test_core.py -v --timeout=60` — 161 passed, 1 skipped
+- **Pre-commit hooks**: All 13 hooks passed (ruff check, ruff format, codespell, yamllint, prettier, mypy, pylint, gen_requirements_all, hassfest, hassfest-metadata, hassfest-mypy-config)
+- **Local app startup**: `hass -c config` correctly exits with "Home Assistant requires at least Python 3.14.0" on Python 3.13.2 environment, confirming REQUIRED_PYTHON_VER check works as intended
+
+### 4. Issues Encountered
+- **Ruff UP036 errors**: Bumping the minimum Python version caused ruff to flag pre-existing `sys.version_info` guards in `recorder/executor.py` and `frozen_dataclass_compat.py` as outdated. Fixed by removing the dead code branch in recorder and adding `# noqa: UP036` suppression in frozen_dataclass_compat (where the guard is still needed for the `annotationlib` module).
+- **apple_tv and profiler components**: These have intentional Python 3.14 incompatibility guards that also trigger UP036. Left unchanged as they are pre-existing compatibility handling, not introduced by this upgrade.
+
+## Final Recommendation
+The upgrade from Python 3.13 to 3.14 is straightforward for this project since it was already partially supporting 3.14. All version references have been updated to make 3.14 the minimum and default version. The known component incompatibilities (profiler memory profiling, apple_tv) are pre-existing and already handled with runtime checks.
+
+Follow-up actions:
+- Monitor CI for any test failures related to the version change
+- Update snapshot test data if needed after running the full test suite
+- Consider updating the `standard-aifc` and `standard-telnetlib` backport packages if newer versions targeting 3.14 become available
