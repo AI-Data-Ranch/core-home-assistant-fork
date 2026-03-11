@@ -253,7 +253,7 @@ async def get_coap_context(hass: HomeAssistant) -> COAP:
     ipv4: list[IPv4Address] = []
     if not network.async_only_default_interface_enabled(adapters):
         ipv4.extend(
-            address
+            address  # type: ignore[misc]
             for address in await network.async_get_enabled_source_ips(hass)
             if address.version == 4
             and not (
